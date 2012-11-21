@@ -1,0 +1,175 @@
+﻿<Page x:Class="ToolingManWPF.DynamicInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:local="clr-namespace:ToolingManWPF.Helper"    
+	Title="DynamicInfo" Loaded="Page_Loaded">
+   
+    <Page.Resources>
+        <local:OverValidateConverter x:Key="OverValidateConverter"/>
+        <Style TargetType="Label" x:Key="WarnStyle">
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Page.Resources>
+   
+    <Grid Name="MoldDynamicInfoGrid">
+        <Border BorderBrush="#FFBABABA" CornerRadius="3" BorderThickness="0" Margin="0" Padding="5">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFEDEDED" Offset="0.987"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <ScrollViewer Margin="50" HorizontalAlignment="Left">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="当前位置      ：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" Content="{Binding Path=CurrentPosition}" FontSize="13.333" BorderBrush="#FFC6C6C6" BorderThickness="1" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.245" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="当前经办人   ：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" Content="{Binding Path=Operator}"  FontSize="13.333" 
+                               BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="经办时间      ：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" FontSize="13.333" Content="{Binding Path=OperateTime}" 
+                               BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Right">     
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="允许冲压次数：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Border BorderThickness="1" BorderBrush="#FFC6C6C6" >
+                            <TextBlock MinWidth="300" FontSize="13.333" Text="{Binding Path=AllowedCuttedTime}" Name="AllowedCuttedTimeTB" 
+                               HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                            </TextBlock>
+                        </Border>
+                    </StackPanel> 
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="当前冲压次数：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Border BorderThickness="1" BorderBrush="#FFC6C6C6">
+                            <TextBlock MinWidth="300" FontSize="13.333" Text="{Binding Path=CurrentCuttedTime}" Name="CurrentCuttedTimeTB" 
+                               HorizontalAlignment="Right" IsEnabled="False" VerticalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                            </TextBlock>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="放行周期       ：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Border BorderThickness="1" BorderBrush="#FFC6C6C6">
+                            <TextBlock MinWidth="300" FontSize="13.333" Text="{Binding Path=ReleaseCycle}" Name="ReleaseCycleTB" 
+                               HorizontalAlignment="Right" IsEnabled="False" VerticalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                            </TextBlock>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="上次放行时间：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Border BorderThickness="1" BorderBrush="#FFC6C6C6">
+                            <TextBlock MinWidth="300" FontSize="13.333" Text="{Binding Path=LastReleasedTime}" Name="LastReleasedTimeTB" 
+                               HorizontalAlignment="Right" IsEnabled="False" VerticalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                            </TextBlock>
+                        </Border>
+                    </StackPanel>
+
+                    
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="维护周期       ：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Border BorderThickness="1" BorderBrush="#FFC6C6C6">
+                            <TextBlock MinWidth="300" FontSize="13.333" Text="{Binding Path=MantainCycle}" Name="MantainCycleTB" 
+                               HorizontalAlignment="Right" IsEnabled="False" VerticalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                            </TextBlock>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="上次维护时间：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Border BorderThickness="1" BorderBrush="#FFC6C6C6">
+                            <TextBlock MinWidth="300" FontSize="13.333" Text="{Binding Path=LastMantainTime}" Name="LastMantainTimeTB" 
+                               HorizontalAlignment="Right" IsEnabled="False" VerticalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                            </TextBlock>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10,10">
+                        <Label Content="当前状态       ：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" FontSize="13.333" Content="{Binding Path=StateCN}" BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+<!--
+                    <StackPanel>
+                        <Label Content="*冲压次数已超限" Width="121" Style="{StaticResource WarnStyle}" Name="CutWarnLab">
+                            <Label.Visibility>
+                                <MultiBinding Converter="{StaticResource OverValidateConverter}" 
+                              ConverterParameter="Numerics">
+                                    <Binding  ElementName="AllowedCuttedTimeTB" Path="Text"/>
+                                    <Binding ElementName="CurrentCuttedTimeTB" Path="Text"/>
+                                </MultiBinding>
+                            </Label.Visibility>
+                        </Label>
+                        <Label Content="*放行时间已超限" Width="121" Style="{StaticResource WarnStyle}">
+                            <Label.Visibility>
+                                <MultiBinding Converter="{StaticResource OverValidateConverter}" 
+                              ConverterParameter="Date">
+                                    <Binding  ElementName="ReleaseCycleTB" Path="Text"/>
+                                    <Binding ElementName="LastReleasedTimeTB" Path="Text"/>
+                                </MultiBinding>
+                            </Label.Visibility>
+                        </Label>
+
+                        <Label Content="*维护时间已超限" Width="121" Style="{StaticResource WarnStyle}">
+                            <Label.Visibility>
+                                <MultiBinding Converter="{StaticResource OverValidateConverter}" 
+                              ConverterParameter="Date">
+                                    <Binding  ElementName="MantainCycle" Path="Text"/>
+                                    <Binding ElementName="LastMantainCycleTB" Path="Text"/>
+                                </MultiBinding>
+                            </Label.Visibility>
+                        </Label>
+                    </StackPanel>
+                    -->
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,268 @@
+﻿<Window x:Class="ToolingManWPF.Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Title="模具查询" Loaded="Window_Loaded" Closing="Window_Closing" KeyUp="MoldNRTB_KeyUp">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0.914"/>
+            <GradientStop Color="#FFB0BCF9" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+    <Window.Resources>
+        <Style x:Key="contentCenterStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,25,10,25"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Times New Roman" />
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="layout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="BannerBanner.jpg"/>
+            </Grid.Background>
+            <Label Content="模具查询 / Mold Search" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,12" Foreground="White" FontSize="13.333"/>
+
+
+        </Grid>
+
+
+
+        <Grid Name="body" Grid.Row=" 1" Margin="10,16,10,20">
+            <Grid.ColumnDefinitions  >
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" BorderThickness="0,0,0,0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+
+
+
+                <ScrollViewer>
+
+                    <StackPanel Name="StackPanel_baseSelect" MinWidth="170" Margin="0,0,15,0" >
+
+                        <Border BorderBrush="#FFDEDADA" CornerRadius="5" BorderThickness="1,1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#FFEFEFEF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Margin="15,10,15,15">
+                                <Label Content="模具号">
+
+                                </Label>
+                                <TextBox Name="MoldNRTB" KeyUp="MoldNRTB_KeyUp" GotFocus="MoldNRTB_GotFocus">
+
+                                </TextBox>
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="#FFDEDADA" CornerRadius="5" BorderThickness="1,1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#FFEFEFEF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Margin="15,10,15,15">
+                                <Label Content="模具类型">
+
+                                </Label>
+                                <ComboBox IsTextSearchEnabled="True" Name="MoldTypeCB"
+                                          DisplayMemberPath="Name"   SelectedValuePath="MoldTypeID" SelectedIndex="0">
+                          
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="#FFDEDADA" CornerRadius="5" BorderThickness="1,1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#FFEFEFEF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Margin="15,10,15,15">
+                                <Label Content="成本中心" >
+
+                                </Label>
+                                <ComboBox IsTextSearchEnabled="True" Name="ProjectCB" DisplayMemberPath="Name" 
+                                          SelectedValuePath="ProjectID" SelectedIndex="0">
+
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="#FFDEDADA" CornerRadius="5" BorderThickness="1,1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#FFEFEFEF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Margin="15,10,15,15">
+                                <Label Content="当前状态">
+
+                                </Label>
+                                <ComboBox IsTextSearchEnabled="True" Name="StateCB" DisplayMemberPath="Description"
+                                          SelectedValuePath="Value" SelectedIndex="0">
+
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+
+                        <!--<Border BorderBrush="#FFDEDADA" CornerRadius="5" BorderThickness="1,1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#FFEFEFEF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Margin="15,10,15,15">
+                                <Label Content="超期警报">
+
+                                </Label>
+                                <ComboBox IsTextSearchEnabled="True" Name="WarnCB"  DisplayMemberPath="Description" 
+                                         SelectedValuePath="Value" SelectedIndex="0">
+
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>-->
+
+                       
+                    </StackPanel>
+                </ScrollViewer>
+
+            </Border>
+            <Border Grid.Column="1" VerticalAlignment="Stretch" Margin="5,0,0,0" BorderThickness="0,0,1,0" BorderBrush="#FFE9E9E9" Opacity="0.81">
+                <Border.Effect>
+                    <DropShadowEffect Color="#FF212121" ShadowDepth="4" BlurRadius="9" Direction="320" Opacity="0.895"/>
+                </Border.Effect>
+            </Border>
+
+            <Border Grid.Column ="3" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" >
+                <DockPanel  Name="Stack_Panel_mainBody" Margin="10,0,0,0" LastChildFill="True">
+                    <StackPanel Orientation="Horizontal" Name="StackPanel_toolbar" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Content="查询" Margin="10,0,20,0" Foreground="White" Name="SearchBtn"
+                                BorderBrush="White" Padding="20" HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Click="SearchBtn_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF0F6408" Offset="0"/>
+                                    <GradientStop Color="#FF42B802" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Effect>
+                                <DropShadowEffect Opacity="0.295"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Content="详细信息" Margin="10,0,20,0" Foreground="White" Name="DetailBtn"
+                                BorderBrush="White" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="DetailBtn_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF0F6408" Offset="0"/>
+                                    <GradientStop Color="#FF42B802" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Effect>
+                                <DropShadowEffect Opacity="0.295"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Content="申领" Margin="10,0,20,0" Name="ApplyBtn"
+                                Foreground="White" BorderBrush="White" Padding="20"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Click="ApplyBtn_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF0F6408" Offset="0"/>
+                                    <GradientStop Color="#FF42B802" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Effect>
+                                <DropShadowEffect Opacity="0.295"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Content="归还" Margin="10,0,20,0" Foreground="White" Name="ReturnBtn"
+                                BorderBrush="White" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ReturnBtn_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF0F6408" Offset="0"/>
+                                    <GradientStop Color="#FF42B802" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Effect>
+                                <DropShadowEffect Opacity="0.295"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderBrush="White" Content="入库" Foreground="White" Name="MoldInStoreBtn" Padding="20" Click="MoldInStoreBtn_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF0F6408" Offset="0" />
+                                    <GradientStop Color="#FF42B802" Offset="1" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Effect>
+                                <DropShadowEffect Opacity="0.295" />
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
+                    <DataGrid Name="MoldBaseInfoDG" BorderThickness="0" 
+                              Margin="0,10,0,0" Background="White" IsReadOnly="True"  
+                              ClipboardCopyMode="IncludeHeader" AutoGenerateColumns="False" 
+                              CanUserAddRows="false" CanUserDeleteRows="false" SnapsToDevicePixels="True" 
+                          
+                              CanUserReorderColumns="True" FontSize="14.667">
+
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF269EF1"/>
+                                            <GradientStop Color="#FF052841" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="15" />
+                                <Setter Property="Padding" Value="20,10,20,10"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="模具号" Binding="{Binding Path=MoldNR}" ElementStyle="{StaticResource contentCenterStyle}"/>
+
+
+                            <DataGridTextColumn Header="模具型号" Binding="{Binding Path=Type}" ElementStyle="{StaticResource contentCenterStyle}"/>
+
+
+                            <DataGridTextColumn Header="模具状态" Binding="{Binding Path=StateCN}" ElementStyle="{StaticResource contentCenterStyle}"/>
+
+
+                            <DataGridTextColumn Header="成本中心" Binding="{Binding Path=ProjectName}" ElementStyle="{StaticResource contentCenterStyle}"/>
+
+                            <DataGridTextColumn Header="模具名称" Binding="{Binding Path=Name}" ElementStyle="{StaticResource contentCenterStyle}"/>
+
+                            <DataGridTextColumn Header="当前位置" Binding="{Binding Path=CurrentPosition}" ElementStyle="{StaticResource contentCenterStyle}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

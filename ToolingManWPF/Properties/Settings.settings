@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ToolingManWPF.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jack</Value>
+    </Setting>
+    <Setting Name="WarehouseNr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UNIQ-WARE-001</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

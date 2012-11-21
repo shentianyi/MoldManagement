@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfMoldType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoldType" nillable="true" type="tns:MoldType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoldType" nillable="true" type="tns:ArrayOfMoldType" />
+  <xs:complexType name="MoldType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MoldTypeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldCateID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mold" nillable="true" type="tns:ArrayOfMold">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoldType" nillable="true" type="tns:MoldType" />
+  <xs:complexType name="ArrayOfMold">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Mold" nillable="true" type="tns:Mold" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMold" nillable="true" type="tns:ArrayOfMold" />
+  <xs:complexType name="Mold">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MoldNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldTypeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="State" type="q1:MoldStateType" />
+      <xs:element minOccurs="0" name="Cuttedtimes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxCuttimes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentCuttimes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxLendHour" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReleaseCycle" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastReleasedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MaintainCycle" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastMainedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Producer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldLastRecord" nillable="true" type="tns:ArrayOfMoldLastRecord">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:ArrayOfReport">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="UniqStorage" nillable="true" type="tns:ArrayOfUniqStorage">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Mold" nillable="true" type="tns:Mold" />
+  <xs:complexType name="ArrayOfMoldLastRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoldLastRecord" nillable="true" type="tns:MoldLastRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoldLastRecord" nillable="true" type="tns:ArrayOfMoldLastRecord" />
+  <xs:complexType name="MoldLastRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MoldNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StorageRecordNR" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoldLastRecord" nillable="true" type="tns:MoldLastRecord" />
+  <xs:complexType name="ArrayOfReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Report" nillable="true" type="tns:Report" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReport" nillable="true" type="tns:ArrayOfReport" />
+  <xs:complexType name="Report">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReportId" type="ser:guid" />
+      <xs:element minOccurs="0" name="MoldID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="ReportType" type="q2:ReportType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Report" nillable="true" type="tns:Report" />
+  <xs:complexType name="ArrayOfUniqStorage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UniqStorage" nillable="true" type="tns:UniqStorage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUniqStorage" nillable="true" type="tns:ArrayOfUniqStorage" />
+  <xs:complexType name="UniqStorage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UniqStorageId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UniqNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PositionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="PackageNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UniqStorage" nillable="true" type="tns:UniqStorage" />
+  <xs:complexType name="ArrayOfMoldCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoldCategory" nillable="true" type="tns:MoldCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoldCategory" nillable="true" type="tns:ArrayOfMoldCategory" />
+  <xs:complexType name="MoldCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MoldCateID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldType" nillable="true" type="tns:ArrayOfMoldType">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoldCategory" nillable="true" type="tns:MoldCategory" />
+  <xs:complexType name="ArrayOfProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Project" nillable="true" type="tns:Project" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProject" nillable="true" type="tns:ArrayOfProject" />
+  <xs:complexType name="Project">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProjectID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mold" nillable="true" type="tns:ArrayOfMold">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Project" nillable="true" type="tns:Project" />
+  <xs:complexType name="ArrayOfWarehouse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Warehouse" nillable="true" type="tns:Warehouse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWarehouse" nillable="true" type="tns:ArrayOfWarehouse" />
+  <xs:complexType name="Warehouse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WarehouseNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="WarehouseType" type="q3:WarehouseType" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="tns:ArrayOfPosition">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Warehouse" nillable="true" type="tns:Warehouse" />
+  <xs:complexType name="ArrayOfPosition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Position" nillable="true" type="tns:Position" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPosition" nillable="true" type="tns:ArrayOfPosition" />
+  <xs:complexType name="Position">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PositionID" type="ser:guid" />
+      <xs:element minOccurs="0" name="WarehouseNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PositionNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Capicity" type="xs:int" />
+      <xs:element minOccurs="0" name="UniqStorage" nillable="true" type="tns:ArrayOfUniqStorage">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Position" nillable="true" type="tns:Position" />
+</xs:schema>

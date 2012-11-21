@@ -1,4 +1,4 @@
 MoldManagement
 ==============
 
-MoldManagement
+LEONI Mold Management System

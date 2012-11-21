@@ -1,0 +1,102 @@
+﻿<Window x:Class="ToolingManWPF.MoldApply"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Title="申领模具"
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        d:DesignWidth="418" 
+        SizeToContent="WidthAndHeight" Loaded="Window_Loaded">
+
+
+    <Window.Resources>
+        <Style x:Key="contentCenterStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,25,10,25"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Times New Roman" />
+        </Style>
+    </Window.Resources>
+
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0.914"/>
+            <GradientStop Color="#FFB0BCF9" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+    <Grid x:Name="layout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="BannerBanner.jpg"/>
+            </Grid.Background>
+            <Label Content="申领模具 / Apply for Mold" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,12" Foreground="White" FontSize="13.333"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel  Margin="35,30,10,30">
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="位置          :" Margin="0,0,40,0"/>
+                    <TextBox Width="189" Name="MoldPosiTB" IsEnabled="False" Foreground="Red" FontWeight="Bold"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="用途          :" Margin="0,0,40,0"/>
+                    <ComboBox HorizontalAlignment="Left" Width="188" DisplayMemberPath="Description" 
+                                          SelectedValuePath="Value" SelectedIndex="0" Name="MoldUseWayCB" AllowDrop="False">
+
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="模具号      :" Margin="0,0,40,0"/>
+                    <TextBox Width="189" Name="MoldNRTB" IsEnabled="False"/>
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="申领员工号:" Margin="0,0,40,0"/>
+                    <TextBox Width="187" Name="ApplicantNRTB" KeyUp="ApplicantNRTB_KeyUp" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="压接机号   :" Margin="0,0,40,0"/>
+                    <TextBox Width="185" Name="WorkstationNRTB" KeyUp="WorkstationNRTB_KeyUp" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="确认模具号:" Margin="0,0,40,0"/>
+                    <TextBox Width="184" Name="EnsureMoldNRTB" KeyUp="EnsureMoldNRTB_KeyUp" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="确定" Margin="200,0,0,0"
+                            Foreground="White" BorderBrush="White" Name="MoldApplyBtn" Click="MoldApplyBtn_Click"
+                            Padding="20" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF0F6408" Offset="0"/>
+                                <GradientStop Color="#FF42B802" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Effect>
+                            <DropShadowEffect Opacity="0.295"/>
+                        </Button.Effect>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+
+        </Grid>
+
+
+    </Grid>
+</Window>

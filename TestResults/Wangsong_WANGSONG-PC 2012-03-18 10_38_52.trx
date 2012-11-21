@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="56ca015e-e553-40ca-a595-c7c36e48977c" name="Wangsong@WANGSONG-PC 2012-03-18 10:38:52" runUser="Wangsong-PC\Wangsong" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="默认测试设置" id="e184c376-7cee-48ee-9686-c90a05462c9c">
+    <Deployment runDeploymentRoot="Wangsong_WANGSONG-PC 2012-03-18 10_38_52">
+      <DeploymentItem filename="C:\MyProject\Check\MoldManagement\TestCon\bin\Debug\TestCon.exe" />
+      <DeploymentItem filename="C:\MyProject\Check\MoldManagement\ClassLibrary\bin\Debug\ClassLibrary.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-18T10:38:52.0280000+08:00" queuing="2012-03-18T10:38:52.2420000+08:00" start="2012-03-18T10:38:52.2520000+08:00" finish="2012-03-18T10:38:52.5790000+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetByPartIdTest" storage="c:\myproject\check\moldmanagement\testproject1\bin\debug\testproject1.dll" id="ca7b70c9-f74b-6f9f-9171-e6f35265921c">
+      <Execution id="70685d71-c5ad-4040-a883-69208084e152" />
+      <TestMethod codeBase="C:/MyProject/Check/MoldManagement/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.MoldRepositoryTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetByPartIdTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="ca7b70c9-f74b-6f9f-9171-e6f35265921c" executionId="70685d71-c5ad-4040-a883-69208084e152" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="70685d71-c5ad-4040-a883-69208084e152" testId="ca7b70c9-f74b-6f9f-9171-e6f35265921c" testName="GetByPartIdTest" computerName="WANGSONG-PC" duration="00:00:00.0883190" startTime="2012-03-18T10:38:52.2600000+08:00" endTime="2012-03-18T10:38:52.5610000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="70685d71-c5ad-4040-a883-69208084e152">
+    </UnitTestResult>
+  </Results>
+</TestRun>

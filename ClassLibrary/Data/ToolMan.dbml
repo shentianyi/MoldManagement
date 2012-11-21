@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ToolingManDB" Class="ToolManDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=wangsong-pc;Initial Catalog=ToolingManDB;Persist Security Info=True;User ID=sa" SettingsObjectName="ClassLibrary.Properties.Settings" SettingsPropertyName="ToolingManDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Attachment" Member="Attachment">
+    <Type Name="Attachment">
+      <Column Name="AttachmentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MasterNR" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="AttachmentType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Workstation" Member="Workstation">
+    <Type Name="Workstation">
+      <Column Name="WorkstationID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkstationType" Type="WorkstationType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MaxMoldCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentMoldCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employee">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_Report" Member="Report" ThisKey="EmployeeID" OtherKey="OperatorID" Type="Report" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mold" Member="Mold">
+    <Type Name="Mold">
+      <Column Name="MoldNR" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MoldTypeID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="MoldStateType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cuttedtimes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxCuttimes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CurrentCuttimes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxLendHour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReleaseCycle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastReleasedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaintainCycle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastMainedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Producer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Material" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Mold_MoldLastRecord" Member="MoldLastRecord" ThisKey="MoldNR" OtherKey="MoldNR" Type="MoldLastRecord" />
+      <Association Name="Mold_Report" Member="Report" ThisKey="MoldNR" OtherKey="MoldID" Type="Report" />
+      <Association Name="Mold_UniqStorage" Member="UniqStorage" ThisKey="MoldNR" OtherKey="UniqNR" Type="UniqStorage" />
+      <Association Name="MoldType_Mold" Member="MoldType" ThisKey="MoldTypeID" OtherKey="MoldTypeID" Type="MoldType" IsForeignKey="true" />
+      <Association Name="Project_Mold" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MoldCategory" Member="MoldCategory">
+    <Type Name="MoldCategory">
+      <Column Name="MoldCateID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="MoldCategory_MoldType" Member="MoldType" ThisKey="MoldCateID" OtherKey="MoldCateID" Type="MoldType" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MoldLastRecord" Member="MoldLastRecord">
+    <Type Name="MoldLastRecord">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MoldNR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StorageRecordNR" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Mold_MoldLastRecord" Member="Mold" ThisKey="MoldNR" OtherKey="MoldNR" Type="Mold" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MoldType" Member="MoldType">
+    <Type Name="MoldType">
+      <Column Name="MoldTypeID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MoldCateID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="MoldType_Mold" Member="Mold" ThisKey="MoldTypeID" OtherKey="MoldTypeID" Type="Mold" />
+      <Association Name="MoldCategory_MoldType" Member="MoldCategory" ThisKey="MoldCateID" OtherKey="MoldCateID" Type="MoldCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Position" Member="Position">
+    <Type Name="Position">
+      <Column Name="PositionID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WarehouseNR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PositionNR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Capicity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Position_UniqStorage" Member="UniqStorage" ThisKey="PositionID" OtherKey="PositionId" Type="UniqStorage" />
+      <Association Name="Warehouse_Position" Member="Warehouse" ThisKey="WarehouseNR" OtherKey="WarehouseNR" Type="Warehouse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Project">
+    <Type Name="Project">
+      <Column Name="ProjectID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Project_Mold" Member="Mold" ThisKey="ProjectID" OtherKey="ProjectID" Type="Mold" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report" Member="Report">
+    <Type Name="Report">
+      <Column Name="ReportId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MoldID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OperatorID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReportType" Type="ReportType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_Report" Member="Employee" ThisKey="OperatorID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Mold_Report" Member="Mold" ThisKey="MoldID" OtherKey="MoldNR" Type="Mold" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StorageRecord" Member="StorageRecord">
+    <Type Name="StorageRecord">
+      <Column Name="StorageRecordId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StorageRecordNR" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PositionId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Source" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Destination" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="OperatorId" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ApplicantId" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RecordType" Type="StorageRecordType" DbType="Int" CanBeNull="true" />
+      <Column Name="TargetNR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UniqStorage" Member="UniqStorage">
+    <Type Name="UniqStorage">
+      <Column Name="UniqStorageId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UniqNR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PositionId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PackageNR" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Mold_UniqStorage" Member="Mold" ThisKey="UniqNR" OtherKey="MoldNR" Type="Mold" IsForeignKey="true" />
+      <Association Name="Position_UniqStorage" Member="Position" ThisKey="PositionId" OtherKey="PositionID" Type="Position" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Warehouse" Member="Warehouse">
+    <Type Name="Warehouse">
+      <Column Name="WarehouseNR" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WarehouseType" Type="WarehouseType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Warehouse_Position" Member="Position" ThisKey="WarehouseNR" OtherKey="WarehouseNR" Type="Position" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportView" Member="ReportView">
+    <Type Name="ReportView">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MoldID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OperatorID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReportId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ReportType" Type="ReportType" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MoldView" Member="MoldView">
+    <Type Name="MoldView">
+      <Column Name="MoldNR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MoldTypeID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CateName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MoldCateID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="MoldStateType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cuttedtimes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxCuttimes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CurrentCuttimes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxLendHour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReleaseCycle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastReleasedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaintainCycle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastMainedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastRecordDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StorageRecordNR" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Producer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Material" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

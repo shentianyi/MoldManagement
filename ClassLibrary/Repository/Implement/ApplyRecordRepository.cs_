@@ -1,0 +1,156 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using ClassLibrary.Data;
+using ClassLibrary.ENUM;
+using ClassLibrary.Repository.Interface;
+
+namespace ClassLibrary.Repository.Implement
+{
+    public class ApplyRecordRepository : IApplyRecordRepository
+    {
+        ToolManDataContext context;
+
+        public ApplyRecordRepository(IUnitOfWork _context)
+        {
+            this.context = _context as ToolManDataContext;
+        }
+
+        /// <summary>
+        /// add one apply record
+        /// </summary>
+        /// <param name="applyRecord">the instance of apply record</param>
+        public void Add(ApplyRecord applyRecord)
+        {
+            context.ApplyRecord.InsertOnSubmit(applyRecord);
+        }
+
+        /// <summary>
+        /// get apply records by the mold id
+        /// </summary>
+        /// <param name="moldNR">the NR of mold</param>
+        /// <returns>the list of record</returns>
+        public List<ApplyRecord> GetByMoldNR(string moldNR)
+        {
+            return context.ApplyRecord.Where(record => record.MoldID == moldNR).ToList();
+        }
+
+        /// <summary>
+        /// get apply record by number
+        /// </summary>
+        /// <param name="recordNR">the number of apply record</param>
+        /// <returns>the instance of apply record</returns>
+        public ApplyRecord GetByApplyRecordNR(Guid recordNR)
+        {
+            ApplyRecord applyRecord = context.ApplyRecord.Single(a => a.RecordNR.Equals(recordNR));
+            return applyRecord;
+        }
+
+        /// <summary>
+        /// get apply records by the workstaion id
+        /// </summary>
+        /// <param name="workstaionId">the id of workstaion</param>
+        /// <returns>the list of record</returns>
+        //public List<ApplyRecord> GetByWorkstaionId(string workstaionId)
+        //{
+        //    return context.ApplyRecord.Where(record => record.WorkstationID == workstaionId).ToList();
+        //}
+
+
+        /// <summary>
+        /// get apply records by the applicant id
+        /// </summary>
+        /// <param name="applicantId">the id of applicant</param>
+        /// <returns>the list of record</returns>
+        public List<ApplyRecord> GetByApplicantId(string applicantId)
+        {
+            return context.ApplyRecord.Where(record => record.ApplicantID.Equals(applicantId)).ToList();
+        }
+
+        /// <summary>
+        /// get apply records by the operator id
+        /// </summary>
+        /// <param name="operatorId">the id of operator</param>
+        /// <returns>the list of record</returns>
+        public List<ApplyRecord> GetByOperatorId(string operatorId)
+        {
+            return context.ApplyRecord.Where(record => record.ApplicantID.Equals(operatorId)).ToList();
+        }
+
+        /// <summary>
+        /// get apply records by the record type
+        /// </summary>
+        /// <param name="applyType">the enum tpye param of record type</param>
+        /// <returns>the lisf of record</returns>
+        public List<ApplyRecord> GetByRecordType(StorageRecordType applyType)
+        {
+            return context.ApplyRecord.Where(record => record.Type == applyType).ToList();
+        }
+
+        /// <summary>
+        ///  get apply records by the startdate and enddate when the record recorded
+        /// </summary>
+        /// <param name="startDate">the date set as the start condition</param>
+        /// <param name="endDate">the date set as the end condition</param>
+        /// <returns>the list apply record</returns>
+        public List<ApplyRecord> GetByRecordDate(DateTime startDate, DateTime endDate)
+        {
+            return context.ApplyRecord.Where(record => record.Date >= startDate && record.Date <= endDate).ToList();
+        }
+
+        /// <summary>
+        /// delete the apply records
+        /// </summary>
+        /// <param name="records">the list of records</param>
+        public void Delete(List<ApplyRecord> records)
+        {
+            context.ApplyRecord.DeleteAllOnSubmit(records);
+        }
+
+        /// <summary>
+        /// get all the apply records
+        /// </summary>
+        public List<ApplyRecord> All()
+        {
+            return context.ApplyRecord.ToList();
+        }
+
+
+        /// <summary>
+        /// get the mold apply records by mold id 
+        /// </summary>
+        /// <param name="moldNR">the NR of mold</param>
+        /// <param name="endDate"></param>
+        /// <param name="startDate"></param>
+        /// <returns>the list of the mold apply records</returns>
+        public List<MoldApplyRecordView> GetMoldApplyRecordsByMoldNR(string moldNR , string applicantId,DateTime? startDate, DateTime? endDate)
+        {
+            List<MoldApplyRecordView> records = context.MoldApplyRecordView.Where(v => v.MoldID.Equals(moldNR))
+                .Where(v => startDate == null ? true : v.Date >= startDate)
+                 .Where(v => endDate == null ? true : v.Date <= endDate)
+                 .Where(v =>string.IsNullOrEmpty(applicantId) ? true : v.ApplicantID.Equals(applicantId))
+                .OrderByDescending(v => v.Date).ToList();
+            return records;
+        }
+
+
+        /// <summary>
+        /// get the mold apply records by mold id, page, pageSize
+        /// </summary>
+        /// <param name="moldNR">the NR of mold</param>
+        /// <param name="pageIndex">the index of page</param>
+        /// <param name="pageSize">the size of page</param>
+        /// <returns></returns>
+        public List<MoldApplyRecordView> GetMoldApplyRecordsByMoldNR(string moldNR,int pageIndex,int pageSize, string applicantId,DateTime? startDate, DateTime? endDate)
+        {
+            List<MoldApplyRecordView> records = context.MoldApplyRecordView.Where(v => v.MoldID.Equals(moldNR))
+                .Where(v => startDate == null ? true : v.Date >= startDate)
+                 .Where(v => endDate == null ? true : v.Date <= endDate)
+                 .Where(v => string.IsNullOrEmpty(applicantId) ? true : v.ApplicantID.Equals(applicantId))
+               .OrderByDescending(v => v.Date).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            return records;
+        }
+    }
+}
+

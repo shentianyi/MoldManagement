@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 20.125" name="ToolMan">
+  <DataContextMoniker Name="/ToolManDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8326a91e-5c01-4d66-a2b4-3e662cc0e0ad" absoluteBounds="11.75, 0.75, 2, 1.9535852050781253">
+      <DataClassMoniker Name="/ToolManDataContext/Attachment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="513e65ed-10f9-4dab-9a15-0153f6926b7a" absoluteBounds="11.765, 1.21, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6667ecd3-7d81-4fc1-82f5-767f2b5726df" absoluteBounds="3.875, 10.875, 2, 1.7625655110677094">
+      <DataClassMoniker Name="/ToolManDataContext/Workstation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6027fb5f-118f-4f41-bb33-45a7d50dd231" absoluteBounds="3.89, 11.335, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00392cc4-a163-4d17-8de2-e24d259ecb48" absoluteBounds="6.25, 0.875, 2, 1.1895064290364585">
+      <DataClassMoniker Name="/ToolManDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ddf54eb-4932-419e-88e7-0481c8979a46" absoluteBounds="6.265, 1.335, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6f950e5-1f2f-4cc8-ace8-9715d7046fe7" absoluteBounds="6.25, 3.625, 2, 3.8637821451822916">
+      <DataClassMoniker Name="/ToolManDataContext/Mold" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9444f5d8-17ea-4a70-a6e7-1b7c61919631" absoluteBounds="6.265, 4.085, 1.9700000000000002, 3.3037821451822915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2905d76c-8672-4737-be16-0333f6d78fac" absoluteBounds="0.75, 4.875, 2, 1.1895064290364577">
+      <DataClassMoniker Name="/ToolManDataContext/MoldCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12e1b2cb-6f46-40bc-8f74-8c724223a8df" absoluteBounds="0.765, 5.335, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3641673-4907-4692-affb-ab2acb3a30d2" absoluteBounds="9, 4.875, 2, 1.3805261230468755">
+      <DataClassMoniker Name="/ToolManDataContext/MoldLastRecord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc33cad1-fd53-4288-a93c-dd3598592358" absoluteBounds="9.015, 5.335, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c27dfbc0-51f6-4598-a2b7-4287a7b72f3d" absoluteBounds="3.5, 4.875, 2, 1.3805261230468755">
+      <DataClassMoniker Name="/ToolManDataContext/MoldType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94413fed-e6c5-43ae-8194-73383bcc01f1" absoluteBounds="3.515, 5.335, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="775c82f2-171b-4590-a817-4b7a817d6d43" absoluteBounds="9.25, 11.75, 2, 1.5715458170572916">
+      <DataClassMoniker Name="/ToolManDataContext/Position" />
+      <nestedChildShapes>
+        <elementListCompartment Id="006ace7e-6052-444c-90f1-757984626a7e" absoluteBounds="9.265, 12.21, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1c6dd901-e86b-4aa9-87a1-2471023d4fe5" absoluteBounds="3.5, 1.875, 2, 1.1895064290364585">
+      <DataClassMoniker Name="/ToolManDataContext/Project" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8899ac3-ced7-45de-9980-b1c8c8126ace" absoluteBounds="3.515, 2.335, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0d746261-6987-478e-8a45-f45da28cce88" absoluteBounds="9, 7.625, 2, 1.7625655110677085">
+      <DataClassMoniker Name="/ToolManDataContext/Report" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba064792-92ed-47c4-b192-43949799e2c1" absoluteBounds="9.015, 8.085, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e909d3c7-4ca7-44b7-b438-17e30b4dc3cb" absoluteBounds="11.75, 12.75, 2, 3.0997033691406273">
+      <DataClassMoniker Name="/ToolManDataContext/StorageRecord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c0e6d36-9ce7-43f2-84b4-c42045d191c2" absoluteBounds="11.765, 13.21, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b04b0b4-dfa9-4609-a0a7-dbd55a32a598" absoluteBounds="12, 4.625, 2, 1.7625655110677077">
+      <DataClassMoniker Name="/ToolManDataContext/UniqStorage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02a49c9d-9155-4b3f-beee-31c9c137085b" absoluteBounds="12.015, 5.085, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a5c8da5-a22b-4ea0-b4e4-97ac21a5f91c" absoluteBounds="6.5, 11.875, 2, 1.3805261230468737">
+      <DataClassMoniker Name="/ToolManDataContext/Warehouse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f063e4fc-3320-4f93-9667-53d9c5da9098" absoluteBounds="6.515, 12.335, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 5.56526306152344); (8.54166666666667 : 5.56526306152344 : JumpStart); (8.70833333333333 : 5.56526306152344 : JumpEnd); (9 : 5.56526306152344)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/Mold/Mold_MoldLastRecord" />
+      <nodes>
+        <classShapeMoniker Id="e6f950e5-1f2f-4cc8-ace8-9715d7046fe7" />
+        <classShapeMoniker Id="a3641673-4907-4692-affb-ab2acb3a30d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.56526306152344); (6.25 : 5.56526306152344)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/MoldType/MoldType_Mold" />
+      <nodes>
+        <classShapeMoniker Id="c27dfbc0-51f6-4598-a2b7-4287a7b72f3d" />
+        <classShapeMoniker Id="e6f950e5-1f2f-4cc8-ace8-9715d7046fe7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.46975321451823); (3.5 : 5.46975321451823)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ToolManDataContext/MoldCategory/MoldCategory_MoldType" />
+      <nodes>
+        <classShapeMoniker Id="2905d76c-8672-4737-be16-0333f6d78fac" />
+        <classShapeMoniker Id="c27dfbc0-51f6-4598-a2b7-4287a7b72f3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.06450642903646); (5.875 : 3.43950642903646); (5.875 : 3.25); (6.25 : 3.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/Project/Project_Mold" />
+      <nodes>
+        <classShapeMoniker Id="1c6dd901-e86b-4aa9-87a1-2471023d4fe5" />
+        <classShapeMoniker Id="e6f950e5-1f2f-4cc8-ace8-9715d7046fe7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 2.06359042409105); (8.625 : 2.43859042409105); (8.625 : 8.53753475553386); (9 : 8.53753475553386)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/Employee/Employee_Report" />
+      <nodes>
+        <classShapeMoniker Id="00392cc4-a163-4d17-8de2-e24d259ecb48" />
+        <classShapeMoniker Id="0d746261-6987-478e-8a45-f45da28cce88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.48878214518229); (8.5 : 7.73878214518229); (8.5 : 7.125); (8.56607443490112 : 7.19107443490112 : JumpStart); (8.68392556509888 : 7.30892556509888 : JumpEnd); (9 : 7.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/Mold/Mold_Report" />
+      <nodes>
+        <classShapeMoniker Id="e6f950e5-1f2f-4cc8-ace8-9715d7046fe7" />
+        <classShapeMoniker Id="0d746261-6987-478e-8a45-f45da28cce88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.71875); (8.54166666666667 : 4.71875 : JumpStart); (8.70833333333333 : 4.71875 : JumpEnd); (12 : 4.71875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/Mold/Mold_UniqStorage" />
+      <nodes>
+        <classShapeMoniker Id="e6f950e5-1f2f-4cc8-ace8-9715d7046fe7" />
+        <classShapeMoniker Id="9b04b0b4-dfa9-4609-a0a7-dbd55a32a598" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.15625 : 11.75); (11.15625 : 6.35279581705729); (12 : 6.35279581705729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/Position/Position_UniqStorage" />
+      <nodes>
+        <classShapeMoniker Id="775c82f2-171b-4590-a817-4b7a817d6d43" />
+        <classShapeMoniker Id="9b04b0b4-dfa9-4609-a0a7-dbd55a32a598" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 12.5652630615234); (9.25 : 12.5652630615234)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ToolManDataContext/Warehouse/Warehouse_Position" />
+      <nodes>
+        <classShapeMoniker Id="9a5c8da5-a22b-4ea0-b4e4-97ac21a5f91c" />
+        <classShapeMoniker Id="775c82f2-171b-4590-a817-4b7a817d6d43" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4b8e16f9-57b4-40fc-a8c3-c53d2d93000d" absoluteBounds="5.375, 14.375, 2, 1.9535852050781251">
+      <DataClassMoniker Name="/ToolManDataContext/ReportView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2ba39f1-46a9-45ab-8fe6-822f9dff039d" absoluteBounds="5.39, 14.835, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03f7b6c0-ea1c-4ccd-963a-a19437deb160" absoluteBounds="1.75, 14.875, 2, 5.0099003092447907">
+      <DataClassMoniker Name="/ToolManDataContext/MoldView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="507e548e-4c9b-45f0-a093-c0075f794ae7" absoluteBounds="1.7650000000000001, 15.335, 1.9700000000000002, 4.4499003092447911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

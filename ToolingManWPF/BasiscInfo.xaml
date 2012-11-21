@@ -1,0 +1,163 @@
+﻿<Page x:Class="ToolingManWPF.BasiscInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+	Title="BasiscInfo" Loaded="Page_Loaded">
+    <Grid Name="BasicInfoGrid">
+        <Border BorderBrush="#FFBABABA" CornerRadius="3" BorderThickness="0" Margin="0" Padding="5">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFEDEDED" Offset="0.987"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <ScrollViewer Margin="50" HorizontalAlignment="Left">
+                <StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="模具名称：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" FontSize="13.333" BorderBrush="#FFC6C6C6" Content="{Binding Path=Name}"
+                               BorderThickness="1" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.245" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="模具型号：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" FontSize="13.333" Content="{Binding Path=Type}" BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="生产厂商：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" FontSize="13.333"  Content="{Binding Path=Producer}" BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Center">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="模具重量：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" FontSize="13.333" BorderThickness="1" Content="{Binding Path=Weight}" BorderBrush="#FFC6C6C6" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="模具材质：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" Content="{Binding Path=Material}" FontSize="13.333" BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Center">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="成本中心：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" Content="{Binding Path=ProjectName}" FontSize="13.333" BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                   
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="当前状态：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="300" Content="{Binding Path=StateCN}" FontSize="13.333" BorderThickness="1" BorderBrush="#FFC6C6C6" HorizontalAlignment="Right">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="模具库位：" Margin="0,0,10,0" FontSize="13.333"></Label>
+                        <Label MinWidth="240" Content="{Binding Path=Position}" FontSize="13.333" BorderThickness="1" Name="MoldPosiContent"
+                               BorderBrush="#FFC6C6C6" HorizontalAlignment="Right" Width="240">
+                            <Label.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="#FFBABABA" Opacity="0.26" ShadowDepth="2"/>
+                            </Label.Effect>
+                        </Label>
+                        <Button Width="60" Content="修改库位"  Foreground="White" BorderBrush="White" Name="ChangePosiBtn" Click="ChangePosiBtn_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF0F6408" Offset="0"/>
+                                    <GradientStop Color="#FF42B802" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Label Content="其他附件:"></Label>
+
+                            <TextBlock Name="AttachmentTB"   Margin="27,0,10,0" Width="300" Height="Auto" TextWrapping="Wrap">
+                                
+                            </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,05,0,0">
+                        <Label Content="上传附件" Margin="0,10,40,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+
+                        <ListBox Width="191" Height="100" Name="FileNameList" Margin="85,0,0,0"/>
+                        <StackPanel Orientation="Vertical">
+                            <Button Content="移除文件" Margin="10,0,0,0" Name="RemoveFileBtn"
+                          Width="88" Foreground="White" BorderBrush="White"  Height="34" Click="RemoveFileBtn_Click">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF0F6408" Offset="0"/>
+                                        <GradientStop Color="#FF42B802" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Effect>
+                                    <DropShadowEffect Opacity="0.295"/>
+                                </Button.Effect>
+                            </Button>
+                            <Button Content="选择文件" Margin="0,2,0,0" Name="ChooseFileBtn"
+                          Width="88" Foreground="White" BorderBrush="White"  Height="34"
+                             HorizontalAlignment="Right" Click="ChooseFileBtn_Click">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF0F6408" Offset="0"/>
+                                        <GradientStop Color="#FF42B802" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Effect>
+                                    <DropShadowEffect Opacity="0.295"/>
+                                </Button.Effect>
+                            </Button>
+                            <Button Content="上传附件" Margin="0,2,0,0" Name="OKBtn"
+                          Width="88" Foreground="White" BorderBrush="White"  Height="34"
+                             HorizontalAlignment="Right" Click="OKBtn_Click">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF0F6408" Offset="0"/>
+                                        <GradientStop Color="#FF42B802" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Effect>
+                                    <DropShadowEffect Opacity="0.295"/>
+                                </Button.Effect>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+        
+    </Grid>
+</Page>

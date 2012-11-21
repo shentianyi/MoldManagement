@@ -1,0 +1,110 @@
+﻿<Window x:Class="ToolingManWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="莱尼-模具管理套件" Height="540" Width="700" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="98*" />
+            <RowDefinition Height="27*" />
+            <RowDefinition Height="151*" />
+            <RowDefinition Height="155*" />
+            <RowDefinition Height="70*" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Background.png"/>
+        </Grid.Background>
+        <Grid Grid.ColumnSpan="5">
+            <Grid.Background>
+                <ImageBrush ImageSource="BannerBanner.jpg"/>
+            </Grid.Background>
+            <Label Content="系统入口 / Enter UI" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,12" Foreground="White" FontSize="13.333"/>
+
+
+        </Grid>
+
+        <StackPanel  Grid.Row="2"  Grid.Column="1">
+            <Button Content="模具搜索" Name="SearchBtn" Click="SearchBtn_Click" Height="130" Width="130" Foreground="White" FontSize="28" BorderBrush="Transparent" Style="{Binding}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F6408" Offset="0"/>
+                        <GradientStop Color="#FF42B802" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                   
+                    <DropShadowEffect Opacity="0.295"/>
+                </Button.Effect>
+                </Button> </StackPanel>
+        <StackPanel  Grid.Row="2"  Grid.Column="2">
+            <Button Content="模具信息" Name="ToolInfoBtn" Click="ToolInfoBtn_Click"  
+                    Height="130" Width="130" Foreground="White" FontSize="28"
+                    BorderBrush="Transparent" Style="{Binding}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F6408" Offset="0"/>
+                        <GradientStop Color="#FF42B802" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+
+                    <DropShadowEffect Opacity="0.295"/>
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+        <StackPanel  Grid.Row="2"  Grid.Column="3">
+            <Button Content="模具入库" Name="MoldInStoreBtn" Click="MoldInStoreBtn_Click" 
+                    Height="130" Width="130" 
+                Foreground="White" FontSize="28" BorderBrush="Transparent"
+                Style="{Binding}" Grid.Column="3"  Grid.Row="2">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F6408" Offset="0" />
+                        <GradientStop Color="#FF42B802" Offset="1" />
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect Opacity="0.295" />
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+        <StackPanel  Grid.Row="3"  Grid.Column="1">
+            <Button Content="超期查询" Name="button8" Click="MoldWarnInfoBtn_Click" 
+                      Height="130" Width="130" 
+                Foreground="White" FontSize="28" BorderBrush="Transparent" Style="{Binding}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F6408" Offset="0" />
+                        <GradientStop Color="#FF42B802" Offset="1" />
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect Opacity="0.295" />
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3"  Grid.Column="2">
+            <Button Content="模具实验" Name="button9" Click="MoldLabBtn_Click" 
+                      Height="130" Width="130" 
+                Foreground="White" FontSize="28" BorderBrush="Transparent" Style="{Binding}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F6408" Offset="0" />
+                        <GradientStop Color="#FF42B802" Offset="1" />
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect Opacity="0.295" />
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

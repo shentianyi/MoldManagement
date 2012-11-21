@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="21cc286b-9912-45fd-b170-b024c05c7020" name="Wangsong@WANGSONG-PC 2012-03-18 10:37:04" runUser="Wangsong-PC\Wangsong" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="默认测试设置" id="160c65cf-560c-4da2-83a3-142376ac5dc4">
+    <Deployment runDeploymentRoot="Wangsong_WANGSONG-PC 2012-03-18 10_37_04">
+      <DeploymentItem filename="C:\MyProject\Check\MoldManagement\TestCon\bin\Debug\TestCon.exe" />
+      <DeploymentItem filename="C:\MyProject\Check\MoldManagement\ClassLibrary\bin\Debug\ClassLibrary.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-18T10:37:04.0900000+08:00" queuing="2012-03-18T10:37:05.5650000+08:00" start="2012-03-18T10:37:05.6840000+08:00" finish="2012-03-18T10:37:06.5290000+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetByPartIdTest" storage="c:\myproject\check\moldmanagement\testproject1\bin\debug\testproject1.dll" id="ca7b70c9-f74b-6f9f-9171-e6f35265921c">
+      <Execution id="0d758ec9-4e2e-48de-b977-e9902dc1b20e" />
+      <TestMethod codeBase="C:/MyProject/Check/MoldManagement/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.MoldRepositoryTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetByPartIdTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="ca7b70c9-f74b-6f9f-9171-e6f35265921c" executionId="0d758ec9-4e2e-48de-b977-e9902dc1b20e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0d758ec9-4e2e-48de-b977-e9902dc1b20e" testId="ca7b70c9-f74b-6f9f-9171-e6f35265921c" testName="GetByPartIdTest" computerName="WANGSONG-PC" duration="00:00:00.3014774" startTime="2012-03-18T10:37:05.7280000+08:00" endTime="2012-03-18T10:37:06.4520000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0d758ec9-4e2e-48de-b977-e9902dc1b20e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失败。应为: &lt;System.Collections.Generic.List`1[ClassLibrary.Data.Mold]&gt;，实际为: &lt;System.Collections.Generic.List`1[ClassLibrary.Data.Mold]&gt;。</Message>
+          <StackTrace>   在 TestProject1.MoldRepositoryTest.GetByPartIdTest() 位置 C:\MyProject\Check\MoldManagement\TestProject1\MoldRepositoryTest.cs:行号 83
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

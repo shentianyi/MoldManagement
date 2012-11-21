@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f31ca329-23e5-489f-9640-64c62de64595" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/ToolingWCF/ConditionService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="9bf94bc4-c520-4802-b592-87ab36417ff1" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="7d93d3b3-f76a-4563-ad1e-fa0a1fa69070" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="033483ed-cd9f-42a3-bdd7-5edca31fd533" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="ClassLibrary.Data1.xsd" MetadataType="Schema" ID="580488bf-a60f-4836-acdc-b0430e9702b6" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="ClassLibrary.ENUM1.xsd" MetadataType="Schema" ID="6fed4a57-c8ff-4a9b-acac-8846b284010d" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="ClassLibrary.Utilities1.xsd" MetadataType="Schema" ID="2df74281-e7e9-463f-9856-154d81a7a101" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

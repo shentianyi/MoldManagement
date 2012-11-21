@@ -1,0 +1,82 @@
+﻿<Window x:Class="ToolingManWPF.MoldInStore"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="模具入库" Height="529" Width="461" Closing="Window_Closing">
+
+
+    <Window.Resources>
+        <Style x:Key="contentCenterStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,25,10,25"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Times New Roman" />
+        </Style>
+    </Window.Resources>
+
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0.914"/>
+            <GradientStop Color="#FFB0BCF9" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+    <Grid x:Name="layout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="BannerBanner.jpg"/>
+            </Grid.Background>
+            <Label Content="模具入库 / Mold In Stock" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,12" Foreground="White" FontSize="13.333"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel  Margin="35,30,10,30">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="模具号          :" Margin="0,0,5,0"/>
+                    <TextBox Width="189" Name="MoldNRTB" KeyUp="MoldNRTB_KeyUp" LostFocus="MoldNRTB_LostFocus" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="操作员号       :" Margin="0,0,5,0"/>
+                    <TextBox Width="189" Name="OperatorTB" Text="" KeyUp="OperatorTB_KeyUp" />
+
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <Label Content="接受备注   :" Margin="0,0,20,0" Width="68" />
+                    <TextBox  Width="189" Height="92.837" Name="RemarkTB" KeyUp="RemarkTB_KeyUp" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Name="MoldPosiSP">
+                    <Label Content="模具库位   :" Margin="0,0,18,0" Foreground="Red" FontWeight="Bold"/>
+                    <TextBox Width="189" Name="MoldPosiNRTB" IsEnabled="False"  Foreground="Red" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="确定" Margin="270,0,0,0"
+                            Foreground="White" BorderBrush="White" Name="OKBtn" 
+                            Padding="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="OKBtn_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF0F6408" Offset="0"/>
+                                <GradientStop Color="#FF42B802" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Effect>
+                            <DropShadowEffect Opacity="0.295"/>
+                        </Button.Effect>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+
+        </Grid>
+
+
+    </Grid>
+</Window>
