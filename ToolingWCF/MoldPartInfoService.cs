@@ -105,6 +105,11 @@ namespace ToolingWCF
                 IMoldRepository moldRepostitory = new MoldRepository(unitwork);
 
                 MoldView moldview = moldRepostitory.GetMoldViewByMoldNR(moldNR);
+
+                if (moldview == null)
+                    return null;
+
+
                 IStorageRecordRepository storageRep = new StorageRecordRepository(unitwork);
                 StorageRecord storageRecord = null;
                 if (moldview.StorageRecordNR != null)

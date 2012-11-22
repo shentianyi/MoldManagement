@@ -16,15 +16,18 @@ namespace ToolingManHost
             ServiceHost condititionHost=null;
             ServiceHost moldpartInfoHost=null;
             ServiceHost storageHost=null;
+            ServiceHost smartDeviceHost = null;
 
             try
             {
                 condititionHost = new ServiceHost(typeof(ConditionService));
                 moldpartInfoHost = new ServiceHost(typeof(MoldPartInfoService));
                 storageHost = new ServiceHost(typeof(StorageManageService));
+                smartDeviceHost = new ServiceHost(typeof(SmartDeviceApi));
                 condititionHost.Open();
                 moldpartInfoHost.Open();
                 storageHost.Open();
+                smartDeviceHost.Open();
                 Console.WriteLine("服务已经启动，请保持其运行...");
                 Console.WriteLine("退出请按 Q ，并回车");
             }
@@ -37,6 +40,8 @@ namespace ToolingManHost
                     moldpartInfoHost.Close();
                 if (storageHost != null && storageHost.State == CommunicationState.Opened)
                     storageHost.Close();
+                if (smartDeviceHost != null && smartDeviceHost.State == CommunicationState.Opened)
+                    smartDeviceHost.Close();
             }
           string quit=Console.ReadLine();
           while (true)
@@ -49,6 +54,8 @@ namespace ToolingManHost
                       moldpartInfoHost.Close();
                   if (storageHost != null && storageHost.State == CommunicationState.Opened)
                       storageHost.Close();
+                  if (smartDeviceHost != null && smartDeviceHost.State == CommunicationState.Opened)
+                      smartDeviceHost.Close();
                   break;
               }
               quit = Console.ReadLine();
