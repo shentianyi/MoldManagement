@@ -24,7 +24,7 @@
                     <GradientStop Color="#FFEDEDED" Offset="0.987"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <ScrollViewer Margin="50" HorizontalAlignment="Left">
+            <ScrollViewer Margin="50,10" HorizontalAlignment="Left">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10,10">
                         <Label Content="当前位置      ：" Margin="0,0,10,0" FontSize="13.333"></Label>

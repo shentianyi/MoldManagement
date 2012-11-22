@@ -125,9 +125,9 @@ namespace ToolingManWPF
             if (MoldBaseInfoDG.SelectedItem != null)
             {
                 MoldBaseInfo moldBaseInfo = MoldBaseInfoDG.SelectedItem as MoldBaseInfo;
-                if (moldBaseInfo.State == ToolingManWPF.MoldPartInfoServiceReference.MoldStateType.Normal)
-                {
-                    MoldApply moldApply = new MoldApply(moldBaseInfo.MoldNR,moldBaseInfo.CurrentPosition);
+                 if (moldBaseInfo.State != ToolingManWPF.MoldPartInfoServiceReference.MoldStateType.NotReturned)
+                 {
+                    MoldApply moldApply = new MoldApply(moldBaseInfo);
                     moldApply.ShowDialog();
                 }
           }

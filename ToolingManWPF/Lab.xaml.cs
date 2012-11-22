@@ -189,13 +189,13 @@ namespace ToolingManWPF
                     switch ((ReportType)int.Parse(MaintainTypeCB.SelectedValue.ToString()))
                     {
                         case ReportType.MaintainReport:
-                            msg = client.MoldMaintain(MoldNRTB.Text, OperatorNRTB.Text, files);
+                            msg = client.MoldMaintain(MoldNRTB.Text, OperatorNRTB.Text, files, (bool)MoldStateCheckBox.IsChecked);
                             break;
                         case ReportType.TestReport:
                             int c = 0;
                             //int.TryParse(CurrentCutTimeTB.Text,out c);
-                            
-                            msg = client.MoldTest(MoldNRTB.Text, OperatorNRTB.Text, files,c);
+
+                            msg = client.MoldTest(MoldNRTB.Text, OperatorNRTB.Text, files, c, (bool)MoldStateCheckBox.IsChecked);
                             break;
                     }
                   

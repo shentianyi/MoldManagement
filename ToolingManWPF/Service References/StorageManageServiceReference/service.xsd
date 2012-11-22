@@ -95,6 +95,7 @@
         <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
         <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="files" nillable="true" type="q8:ArrayOfFileUP" />
         <xs:element minOccurs="0" name="currentCutTimes" type="xs:int" />
+        <xs:element minOccurs="0" name="moldNormal" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -111,6 +112,7 @@
         <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
         <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="files" nillable="true" type="q10:ArrayOfFileUP" />
+        <xs:element minOccurs="0" name="moldNormal" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

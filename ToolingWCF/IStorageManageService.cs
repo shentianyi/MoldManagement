@@ -74,7 +74,7 @@ namespace ToolingWCF
         /// <param name="files"></param>
         /// <returns></returns>
         [OperationContract]
-        Message MoldTest(string moldNR, string operatorNR, FileUP[] files, int currentCutTimes);
+        Message MoldTest(string moldNR, string operatorNR, FileUP[] files, int currentCutTimes,bool moldNormal);
 
         /// <summary>
         /// generate maintain report for mold
@@ -83,7 +83,7 @@ namespace ToolingWCF
         /// <param name="operatorNR"></param>
         /// <returns></returns>
         [OperationContract]
-        Message MoldMaintain(string moldNR, string operatorNR,FileUP[] files);
+        Message MoldMaintain(string moldNR, string operatorNR,FileUP[] files,bool moldNormal);
 
         /// <summary>
         /// upload files

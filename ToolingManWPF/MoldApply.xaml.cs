@@ -14,6 +14,7 @@ using ToolingManWPF.ConditionServiceReference;
 using ToolingManWPF.StorageManageServiceReference;
 using System.Windows.Threading;
 using ToolingManWPF.Data;
+using ToolingManWPF.MoldPartInfoServiceReference;
 
 namespace ToolingManWPF
 {
@@ -22,15 +23,17 @@ namespace ToolingManWPF
     /// </summary>
     public partial class MoldApply : Window
     {
+        MoldBaseInfo moldBaseInfo = null;
         /// <summary>
         /// apply mold from search UI
         /// </summary>
         /// <param name="moldNR"></param>
-        public MoldApply(string moldNR,string posi)
+        public MoldApply(MoldBaseInfo baseInfo)
         {
             InitializeComponent();
-            MoldNRTB.Text = moldNR;
-            MoldPosiTB.Text = posi;
+            MoldNRTB.Text = baseInfo.MoldNR;
+            MoldPosiTB.Text = baseInfo.CurrentPosition;
+            moldBaseInfo = baseInfo;
             ApplicantNRTB.Focus();
         }
 
@@ -54,6 +57,12 @@ namespace ToolingManWPF
         /// <param name="e"></param>
         private void MoldApplyBtn_Click(object sender, RoutedEventArgs e)
         {
+            if ((ToolingManWPF.ConditionServiceReference.MoldStateType)moldBaseInfo.State != ToolingManWPF.ConditionServiceReference.MoldStateType.Normal
+                && (MoldUseType)int.Parse(MoldUseWayCB.SelectedValue.ToString()) == MoldUseType.Produce)
+            {
+                MessageBox.Show("模具目前状态不可用作正产！");
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(EnsureMoldNRTB.Text) && !string.IsNullOrWhiteSpace(ApplicantNRTB.Text) && !string.IsNullOrWhiteSpace(WorkstationNRTB.Text))
             {
                 if (MoldNRTB.Text.Equals(EnsureMoldNRTB.Text))

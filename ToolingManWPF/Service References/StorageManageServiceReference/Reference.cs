@@ -240,10 +240,10 @@ namespace ToolingManWPF.StorageManageServiceReference {
         ToolingManWPF.StorageManageServiceReference.Message MoldMoveStore(string moldNR, string warehouseNR, string sourcePosiNr, string desiPosiNr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStorageManageService/MoldTest", ReplyAction="http://tempuri.org/IStorageManageService/MoldTestResponse")]
-        ToolingManWPF.StorageManageServiceReference.Message MoldTest(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, int currentCutTimes);
+        ToolingManWPF.StorageManageServiceReference.Message MoldTest(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, int currentCutTimes, bool moldNormal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStorageManageService/MoldMaintain", ReplyAction="http://tempuri.org/IStorageManageService/MoldMaintainResponse")]
-        ToolingManWPF.StorageManageServiceReference.Message MoldMaintain(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files);
+        ToolingManWPF.StorageManageServiceReference.Message MoldMaintain(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, bool moldNormal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStorageManageService/FileUpLoad", ReplyAction="http://tempuri.org/IStorageManageService/FileUpLoadResponse")]
         ToolingManWPF.StorageManageServiceReference.Message FileUpLoad(System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, string masterNR);
@@ -302,12 +302,12 @@ namespace ToolingManWPF.StorageManageServiceReference {
             return base.Channel.MoldMoveStore(moldNR, warehouseNR, sourcePosiNr, desiPosiNr);
         }
         
-        public ToolingManWPF.StorageManageServiceReference.Message MoldTest(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, int currentCutTimes) {
-            return base.Channel.MoldTest(moldNR, operatorNR, files, currentCutTimes);
+        public ToolingManWPF.StorageManageServiceReference.Message MoldTest(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, int currentCutTimes, bool moldNormal) {
+            return base.Channel.MoldTest(moldNR, operatorNR, files, currentCutTimes, moldNormal);
         }
         
-        public ToolingManWPF.StorageManageServiceReference.Message MoldMaintain(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files) {
-            return base.Channel.MoldMaintain(moldNR, operatorNR, files);
+        public ToolingManWPF.StorageManageServiceReference.Message MoldMaintain(string moldNR, string operatorNR, System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, bool moldNormal) {
+            return base.Channel.MoldMaintain(moldNR, operatorNR, files, moldNormal);
         }
         
         public ToolingManWPF.StorageManageServiceReference.Message FileUpLoad(System.Collections.Generic.List<ToolingManWPF.StorageManageServiceReference.FileUP> files, string masterNR) {

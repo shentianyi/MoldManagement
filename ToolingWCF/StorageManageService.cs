@@ -438,7 +438,7 @@ namespace ToolingWCF
         /// <param name="operatorNR"></param>
         /// <param name="files"></param>
         /// <returns></returns>
-        public Message  MoldTest(string moldNR, string operatorNR, FileUP[] files,int currentCutTimes)
+        public Message  MoldTest(string moldNR, string operatorNR, FileUP[] files,int currentCutTimes,bool moldNormal)
         {
             try
             {
@@ -466,6 +466,8 @@ namespace ToolingWCF
                         mold.LastReleasedDate = report.Date;
                         mold.Cuttedtimes += mold.CurrentCuttimes;
                         mold.CurrentCuttimes = 0;
+                        if (moldNormal)
+                            mold.State = MoldStateType.Normal;
                         unitwork.Submit();
 
                         ts.Complete();
@@ -487,7 +489,7 @@ namespace ToolingWCF
         /// <param name="moldNR"></param>
         /// <param name="operatorNR"></param>
         /// <returns></returns>
-        public Message MoldMaintain(string moldNR, string operatorNR,FileUP[] files)
+        public Message MoldMaintain(string moldNR, string operatorNR, FileUP[] files, bool moldNormal)
         {
             try
             {
@@ -513,7 +515,8 @@ namespace ToolingWCF
                         IMoldRepository moldRep = new MoldRepository(unitwork);
                         Mold mold = moldRep.GetById(moldNR);
                         mold.LastMainedDate = report.Date;
-
+                        if (moldNormal)
+                            mold.State = MoldStateType.Normal;
                         unitwork.Submit();
 
                         ts.Complete();

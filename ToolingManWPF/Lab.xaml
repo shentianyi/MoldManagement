@@ -56,7 +56,12 @@
                     <Label Content="操作员" Margin="0,0,40,0"/>
                     <TextBox  Width="185" Height="23.837" Name="OperatorNRTB"/>
                 </StackPanel>
-                
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+                    <Label Content="模具状态" Margin="0,0,29,0"/>
+                    <CheckBox Content="正常" Height="22" Name="MoldStateCheckBox" Width="81" FontSize="15"/>
+                </StackPanel>
+
                 <!--<StackPanel Orientation="Horizontal" Margin="0,5,0,25">
                     <Label Content="当前冲压次数" Margin="0,0,4,0"/>
                     <TextBox  Width="185" Height="23.837" Name="CurrentCutTimeTB" Text="0"/>

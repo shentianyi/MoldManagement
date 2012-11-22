@@ -13,7 +13,7 @@
                     <GradientStop Color="#FFEDEDED" Offset="0.987"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <ScrollViewer Margin="50" HorizontalAlignment="Left">
+            <ScrollViewer Margin="50,10" HorizontalAlignment="Left">
                 <StackPanel>
 
 
