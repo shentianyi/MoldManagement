@@ -216,5 +216,10 @@ namespace ToolingManWPF
             List<EnumItem> reportTypes = conditionClient.GetEnumItems(typeof(ReportType).ToString());
             MaintainTypeCB.ItemsSource = reportTypes;
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            instance = null;
+        }
     }
 }
