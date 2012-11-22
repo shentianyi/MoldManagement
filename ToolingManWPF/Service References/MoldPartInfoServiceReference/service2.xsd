@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" />
+  <xs:element name="GetMoldByMutiConditions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" minOccurs="0" name="conditions" nillable="true" type="q1:MoldSearchCondition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldByMutiConditionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="GetMoldByMutiConditionsResult" nillable="true" type="q2:ArrayOfMoldBaseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldBaseInfoByNR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldBaseInfoByNRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="GetMoldBaseInfoByNRResult" nillable="true" type="q3:MoldBaseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldDynamicInfoByMoldNR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldDynamicInfoByMoldNRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="GetMoldDynamicInfoByMoldNRResult" nillable="true" type="q4:MoldDynamicInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldApplyRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicantId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldApplyRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" minOccurs="0" name="GetMoldApplyRecordsResult" nillable="true" type="q5:ArrayOfStorageRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldApplyRecordsInPages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="applicantId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldApplyRecordsInPagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" minOccurs="0" name="GetMoldApplyRecordsInPagesResult" nillable="true" type="q6:ArrayOfStorageRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldReleaseInfoByMoldNR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldReleaseInfoByMoldNRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="GetMoldReleaseInfoByMoldNRResult" nillable="true" type="q7:ArrayOfMoldReleaseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldReleaseInfoByMoldNRInPage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldReleaseInfoByMoldNRInPageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="GetMoldReleaseInfoByMoldNRInPageResult" nillable="true" type="q8:ArrayOfMoldReleaseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFileByNameResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldWarnInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="type" type="q9:MoldWarnType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldWarnInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="GetMoldWarnInfoResult" nillable="true" type="q10:ArrayOfMoldWarnInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldPositionByNr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldPositionByNrResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" minOccurs="0" name="GetMoldPositionByNrResult" nillable="true" type="q11:Position" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldNrByPosiNr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="posiNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldNrByPosiNrResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMoldNrByPosiNrResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldCurrentPosition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoldCurrentPositionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMoldCurrentPositionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

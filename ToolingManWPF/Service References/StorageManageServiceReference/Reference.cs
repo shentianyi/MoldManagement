@@ -250,6 +250,9 @@ namespace ToolingManWPF.StorageManageServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStorageManageService/GetPartPoolPosiNr", ReplyAction="http://tempuri.org/IStorageManageService/GetPartPoolPosiNrResponse")]
         string GetPartPoolPosiNr();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStorageManageService/MoldMoveWorkStation", ReplyAction="http://tempuri.org/IStorageManageService/MoldMoveWorkStationResponse")]
+        ToolingManWPF.StorageManageServiceReference.Message MoldMoveWorkStation(string moldNR, string operatorNR, string targetWStationNR);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -313,6 +316,10 @@ namespace ToolingManWPF.StorageManageServiceReference {
         
         public string GetPartPoolPosiNr() {
             return base.Channel.GetPartPoolPosiNr();
+        }
+        
+        public ToolingManWPF.StorageManageServiceReference.Message MoldMoveWorkStation(string moldNR, string operatorNR, string targetWStationNR) {
+            return base.Channel.MoldMoveWorkStation(moldNR, operatorNR, targetWStationNR);
         }
     }
 }

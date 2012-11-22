@@ -24,6 +24,7 @@ namespace ToolingManHost
                 moldpartInfoHost = new ServiceHost(typeof(MoldPartInfoService));
                 storageHost = new ServiceHost(typeof(StorageManageService));
                 smartDeviceHost = new ServiceHost(typeof(SmartDeviceApi));
+                
                 condititionHost.Open();
                 moldpartInfoHost.Open();
                 storageHost.Open();

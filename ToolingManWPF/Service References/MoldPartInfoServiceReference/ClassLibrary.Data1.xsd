@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="MoldSearchCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MoldNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldTypeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="State" type="q1:MoldStateType" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="Warn" type="q2:MoldWarnType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoldSearchCondition" nillable="true" type="tns:MoldSearchCondition" />
+  <xs:complexType name="ArrayOfAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attachment" nillable="true" type="tns:Attachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttachment" nillable="true" type="tns:ArrayOfAttachment" />
+  <xs:complexType name="Attachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttachmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="MasterNR" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="Type" type="q3:AttachmentType" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Attachment" nillable="true" type="tns:Attachment" />
+  <xs:complexType name="ArrayOfStorageRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StorageRecord" nillable="true" type="tns:StorageRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStorageRecord" nillable="true" type="tns:ArrayOfStorageRecord" />
+  <xs:complexType name="StorageRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StorageRecordId" type="xs:int" />
+      <xs:element minOccurs="0" name="StorageRecordNR" type="ser:guid" />
+      <xs:element minOccurs="0" name="PositionId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatorId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="RecordType" type="q4:StorageRecordType" />
+      <xs:element minOccurs="0" name="TargetNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StorageRecord" nillable="true" type="tns:StorageRecord" />
+  <xs:complexType name="Position">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PositionID" type="ser:guid" />
+      <xs:element minOccurs="0" name="WarehouseNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PositionNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Capicity" type="xs:int" />
+      <xs:element minOccurs="0" name="UniqStorage" nillable="true" type="tns:ArrayOfUniqStorage">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Position" nillable="true" type="tns:Position" />
+  <xs:complexType name="ArrayOfUniqStorage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UniqStorage" nillable="true" type="tns:UniqStorage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUniqStorage" nillable="true" type="tns:ArrayOfUniqStorage" />
+  <xs:complexType name="UniqStorage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UniqStorageId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UniqNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PositionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="PackageNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UniqStorage" nillable="true" type="tns:UniqStorage" />
+</xs:schema>

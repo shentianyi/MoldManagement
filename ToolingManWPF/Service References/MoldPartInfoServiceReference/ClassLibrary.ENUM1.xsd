@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="MoldStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NULL">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotReturned">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Normal">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NeedMantain">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Broken">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MoldStateType" nillable="true" type="tns:MoldStateType" />
+  <xs:simpleType name="MoldWarnType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NULL">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OutTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MoldWarnType" nillable="true" type="tns:MoldWarnType" />
+  <xs:simpleType name="AttachmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PICTURE" />
+      <xs:enumeration value="DOCUMENT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AttachmentType" nillable="true" type="tns:AttachmentType" />
+  <xs:simpleType name="StorageRecordType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Produce" />
+      <xs:enumeration value="Mantain" />
+      <xs:enumeration value="Test" />
+      <xs:enumeration value="InStore" />
+      <xs:enumeration value="OutStore" />
+      <xs:enumeration value="MoveStore" />
+      <xs:enumeration value="ScrapStore" />
+      <xs:enumeration value="Return" />
+      <xs:enumeration value="MoveWStation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StorageRecordType" nillable="true" type="tns:StorageRecordType" />
+  <xs:simpleType name="ReportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MaintainReport" />
+      <xs:enumeration value="TestReport" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReportType" nillable="true" type="tns:ReportType" />
+</xs:schema>

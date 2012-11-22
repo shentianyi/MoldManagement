@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConditionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Utilities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IConditionService_GetMoldTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldTypes" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetMoldTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetMoldCates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldCates" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetMoldCates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldCatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjects" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetEnumItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnumItems" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetEnumItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnumItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetWarehousesByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehousesByType" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_GetWarehousesByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehousesByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_MoldExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoldExist" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_MoldExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoldExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_EmpExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmpExist" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_EmpExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmpExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_WorkstationExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:WorkstationExist" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_WorkstationExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WorkstationExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_PositionExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:PositionExist" />
+  </wsdl:message>
+  <wsdl:message name="IConditionService_PositionExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PositionExistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IConditionService">
+    <wsdl:operation name="GetMoldTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/GetMoldTypes" message="tns:IConditionService_GetMoldTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/GetMoldTypesResponse" message="tns:IConditionService_GetMoldTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldCates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/GetMoldCates" message="tns:IConditionService_GetMoldCates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/GetMoldCatesResponse" message="tns:IConditionService_GetMoldCates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/GetProjects" message="tns:IConditionService_GetProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/GetProjectsResponse" message="tns:IConditionService_GetProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/GetEnumItems" message="tns:IConditionService_GetEnumItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/GetEnumItemsResponse" message="tns:IConditionService_GetEnumItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehousesByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/GetWarehousesByType" message="tns:IConditionService_GetWarehousesByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/GetWarehousesByTypeResponse" message="tns:IConditionService_GetWarehousesByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoldExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/MoldExist" message="tns:IConditionService_MoldExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/MoldExistResponse" message="tns:IConditionService_MoldExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmpExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/EmpExist" message="tns:IConditionService_EmpExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/EmpExistResponse" message="tns:IConditionService_EmpExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkstationExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/WorkstationExist" message="tns:IConditionService_WorkstationExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/WorkstationExistResponse" message="tns:IConditionService_WorkstationExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PositionExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConditionService/PositionExist" message="tns:IConditionService_PositionExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConditionService/PositionExistResponse" message="tns:IConditionService_PositionExist_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="conditionservice" type="tns:IConditionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMoldTypes">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/GetMoldTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldCates">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/GetMoldCates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjects">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/GetProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumItems">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/GetEnumItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehousesByType">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/GetWarehousesByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoldExist">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/MoldExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmpExist">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/EmpExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkstationExist">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/WorkstationExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PositionExist">
+      <soap:operation soapAction="http://tempuri.org/IConditionService/PositionExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConditionService">
+    <wsdl:port name="conditionservice" binding="tns:conditionservice">
+      <soap:address location="http://localhost:9090/ToolingWCF/ConditionService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

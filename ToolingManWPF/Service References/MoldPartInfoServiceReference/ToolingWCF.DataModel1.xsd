@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" />
+  <xs:complexType name="ArrayOfMoldBaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoldBaseInfo" nillable="true" type="tns:MoldBaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoldBaseInfo" nillable="true" type="tns:ArrayOfMoldBaseInfo" />
+  <xs:complexType name="MoldBaseInfo">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" minOccurs="0" name="Attach" nillable="true" type="q1:ArrayOfAttachment" />
+      <xs:element minOccurs="0" name="CurrentPosition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FitConnector" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FitKnife" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Producer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="State" type="q2:MoldStateType" />
+      <xs:element minOccurs="0" name="StateCN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoldBaseInfo" nillable="true" type="tns:MoldBaseInfo" />
+  <xs:complexType name="MoldDynamicInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MoldBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowedCuttedTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CurrentCuttedTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastMantainTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastReleasedTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MantainCycle" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OperateTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Operator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseCycle" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoldDynamicInfo" nillable="true" type="tns:MoldDynamicInfo" />
+  <xs:complexType name="ArrayOfMoldReleaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoldReleaseInfo" nillable="true" type="tns:MoldReleaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoldReleaseInfo" nillable="true" type="tns:ArrayOfMoldReleaseInfo" />
+  <xs:complexType name="MoldReleaseInfo">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" minOccurs="0" name="Attach" nillable="true" type="q3:ArrayOfAttachment" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="ReportType" type="q4:ReportType" />
+      <xs:element minOccurs="0" name="ReportTypeCN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TesterNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TesterName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoldReleaseInfo" nillable="true" type="tns:MoldReleaseInfo" />
+  <xs:complexType name="ArrayOfMoldWarnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoldWarnInfo" nillable="true" type="tns:MoldWarnInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoldWarnInfo" nillable="true" type="tns:ArrayOfMoldWarnInfo" />
+  <xs:complexType name="MoldWarnInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MoldBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DisMinute" type="xs:double" />
+          <xs:element minOccurs="0" name="DisTimeText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LendTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MaxLendHour" type="xs:double" />
+          <xs:element minOccurs="0" name="Minus" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ShouldReTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoldWarnInfo" nillable="true" type="tns:MoldWarnInfo" />
+</xs:schema>

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MoldPartInfoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Data" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMoldPartInfoService_GetMoldByMutiConditions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldByMutiConditions" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldByMutiConditions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldByMutiConditionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldBaseInfoByNR_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldBaseInfoByNR" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldBaseInfoByNR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldBaseInfoByNRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldDynamicInfoByMoldNR_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldDynamicInfoByMoldNR" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldDynamicInfoByMoldNR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldDynamicInfoByMoldNRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldApplyRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldApplyRecords" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldApplyRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldApplyRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldApplyRecordsInPages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldApplyRecordsInPages" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldApplyRecordsInPages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldApplyRecordsInPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldReleaseInfoByMoldNR_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldReleaseInfoByMoldNR" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldReleaseInfoByMoldNR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldReleaseInfoByMoldNRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldReleaseInfoByMoldNRInPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldReleaseInfoByMoldNRInPage" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldReleaseInfoByMoldNRInPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldReleaseInfoByMoldNRInPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetFileByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileByName" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetFileByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldWarnInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldWarnInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldWarnInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldWarnInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldPositionByNr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldPositionByNr" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldPositionByNr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldPositionByNrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldNrByPosiNr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldNrByPosiNr" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldNrByPosiNr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldNrByPosiNrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldCurrentPosition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldCurrentPosition" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetMoldCurrentPosition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoldCurrentPositionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMoldPartInfoService">
+    <wsdl:operation name="GetMoldByMutiConditions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldByMutiConditions" message="tns:IMoldPartInfoService_GetMoldByMutiConditions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldByMutiConditionsResponse" message="tns:IMoldPartInfoService_GetMoldByMutiConditions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldBaseInfoByNR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldBaseInfoByNR" message="tns:IMoldPartInfoService_GetMoldBaseInfoByNR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldBaseInfoByNRResponse" message="tns:IMoldPartInfoService_GetMoldBaseInfoByNR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldDynamicInfoByMoldNR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldDynamicInfoByMoldNR" message="tns:IMoldPartInfoService_GetMoldDynamicInfoByMoldNR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldDynamicInfoByMoldNRResponse" message="tns:IMoldPartInfoService_GetMoldDynamicInfoByMoldNR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldApplyRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldApplyRecords" message="tns:IMoldPartInfoService_GetMoldApplyRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldApplyRecordsResponse" message="tns:IMoldPartInfoService_GetMoldApplyRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldApplyRecordsInPages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldApplyRecordsInPages" message="tns:IMoldPartInfoService_GetMoldApplyRecordsInPages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldApplyRecordsInPagesResponse" message="tns:IMoldPartInfoService_GetMoldApplyRecordsInPages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldReleaseInfoByMoldNR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldReleaseInfoByMoldNR" message="tns:IMoldPartInfoService_GetMoldReleaseInfoByMoldNR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldReleaseInfoByMoldNRResponse" message="tns:IMoldPartInfoService_GetMoldReleaseInfoByMoldNR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldReleaseInfoByMoldNRInPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldReleaseInfoByMoldNRInPage" message="tns:IMoldPartInfoService_GetMoldReleaseInfoByMoldNRInPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldReleaseInfoByMoldNRInPageResponse" message="tns:IMoldPartInfoService_GetMoldReleaseInfoByMoldNRInPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetFileByName" message="tns:IMoldPartInfoService_GetFileByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetFileByNameResponse" message="tns:IMoldPartInfoService_GetFileByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldWarnInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldWarnInfo" message="tns:IMoldPartInfoService_GetMoldWarnInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldWarnInfoResponse" message="tns:IMoldPartInfoService_GetMoldWarnInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldPositionByNr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldPositionByNr" message="tns:IMoldPartInfoService_GetMoldPositionByNr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldPositionByNrResponse" message="tns:IMoldPartInfoService_GetMoldPositionByNr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldNrByPosiNr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldNrByPosiNr" message="tns:IMoldPartInfoService_GetMoldNrByPosiNr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldNrByPosiNrResponse" message="tns:IMoldPartInfoService_GetMoldNrByPosiNr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldCurrentPosition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPosition" message="tns:IMoldPartInfoService_GetMoldCurrentPosition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPositionResponse" message="tns:IMoldPartInfoService_GetMoldCurrentPosition_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="moldpartinfoservice" type="tns:IMoldPartInfoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMoldByMutiConditions">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldByMutiConditions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldBaseInfoByNR">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldBaseInfoByNR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldDynamicInfoByMoldNR">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldDynamicInfoByMoldNR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldApplyRecords">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldApplyRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldApplyRecordsInPages">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldApplyRecordsInPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldReleaseInfoByMoldNR">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldReleaseInfoByMoldNR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldReleaseInfoByMoldNRInPage">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldReleaseInfoByMoldNRInPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileByName">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetFileByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldWarnInfo">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldWarnInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldPositionByNr">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldPositionByNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldNrByPosiNr">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldNrByPosiNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoldCurrentPosition">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MoldPartInfoService">
+    <wsdl:port name="moldpartinfoservice" binding="tns:moldpartinfoservice">
+      <soap:address location="http://localhost:9090/ToolingWCF/MoldPartInfoService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

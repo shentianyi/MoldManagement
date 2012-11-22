@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\ToolingWCF.DataModel.ClientSetting.datasource" />
+    <None Include="Properties\DataSources\ToolingWCF.DataModel.MoldBaseInfo.datasource" />
+    <None Include="Properties\DataSources\ToolingWCF.DataModel.MoldDynamicInfo.datasource" />
+    <None Include="Properties\DataSources\ToolingWCF.DataModel.MoldReleaseInfo.datasource" />
+    <None Include="Properties\DataSources\ToolingWCF.DataModel.MoldWarnInfo.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

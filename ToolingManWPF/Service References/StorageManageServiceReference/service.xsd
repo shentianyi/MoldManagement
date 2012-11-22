@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" />
+  <xs:element name="ApplyMold">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="moldUseType" type="q1:MoldUseType" />
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicantNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="workstationNR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyMoldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="ApplyMoldResult" nillable="true" type="q2:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnMold">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicantNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="moldState" type="q3:MoldReturnStateType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnMoldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="ReturnMoldResult" nillable="true" type="q4:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnMoldInPosition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnMoldInPositionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="ReturnMoldInPositionResult" nillable="true" type="q5:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldInStore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="warehouesNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="positionNR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldInStoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="MoldInStoreResult" nillable="true" type="q6:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldMoveStore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="warehouseNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sourcePosiNr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desiPosiNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldMoveStoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="MoldMoveStoreResult" nillable="true" type="q7:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="files" nillable="true" type="q8:ArrayOfFileUP" />
+        <xs:element minOccurs="0" name="currentCutTimes" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="MoldTestResult" nillable="true" type="q9:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldMaintain">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="files" nillable="true" type="q10:ArrayOfFileUP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldMaintainResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="MoldMaintainResult" nillable="true" type="q11:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileUpLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="files" nillable="true" type="q12:ArrayOfFileUP" />
+        <xs:element minOccurs="0" name="masterNR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileUpLoadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="FileUpLoadResult" nillable="true" type="q13:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartPoolPosiNr">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartPoolPosiNrResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPartPoolPosiNrResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldMoveWorkStation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moldNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="targetWStationNR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoldMoveWorkStationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ToolingWCF.DataModel" minOccurs="0" name="MoldMoveWorkStationResult" nillable="true" type="q14:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

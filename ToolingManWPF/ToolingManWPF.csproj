@@ -270,20 +270,20 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ConditionServiceReference\ClassLibrary.Data1.xsd">
+    <None Include="Service References\ConditionServiceReference\ClassLibrary.Data.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConditionServiceReference\ClassLibrary.ENUM1.xsd">
+    <None Include="Service References\ConditionServiceReference\ClassLibrary.ENUM.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConditionServiceReference\ClassLibrary.Utilities1.xsd">
+    <None Include="Service References\ConditionServiceReference\ClassLibrary.Utilities.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConditionServiceReference\service1.wsdl" />
-    <None Include="Service References\ConditionServiceReference\service2.xsd">
+    <None Include="Service References\ConditionServiceReference\service.wsdl" />
+    <None Include="Service References\ConditionServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConditionServiceReference\service21.xsd">
+    <None Include="Service References\ConditionServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ConditionServiceReference\ToolingManWPF.ConditionServiceReference.EnumItem.datasource">
@@ -301,17 +301,17 @@
     <None Include="Service References\ConditionServiceReference\ToolingManWPF.ConditionServiceReference.Warehouse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\MoldPartInfoServiceReference\ClassLibrary.Data.xsd">
+    <None Include="Service References\MoldPartInfoServiceReference\ClassLibrary.Data1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MoldPartInfoServiceReference\ClassLibrary.ENUM.xsd">
+    <None Include="Service References\MoldPartInfoServiceReference\ClassLibrary.ENUM1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MoldPartInfoServiceReference\service.wsdl" />
-    <None Include="Service References\MoldPartInfoServiceReference\service.xsd">
+    <None Include="Service References\MoldPartInfoServiceReference\service1.wsdl" />
+    <None Include="Service References\MoldPartInfoServiceReference\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MoldPartInfoServiceReference\service1.xsd">
+    <None Include="Service References\MoldPartInfoServiceReference\service21.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MoldPartInfoServiceReference\ToolingManWPF.MoldPartInfoServiceReference.MoldBaseInfo.datasource">
@@ -332,23 +332,23 @@
     <None Include="Service References\MoldPartInfoServiceReference\ToolingManWPF.MoldPartInfoServiceReference.StorageRecord.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\MoldPartInfoServiceReference\ToolingWCF.DataModel.xsd">
+    <None Include="Service References\MoldPartInfoServiceReference\ToolingWCF.DataModel1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StorageManageServiceReference\ClassLibrary.ENUM1.xsd">
+    <None Include="Service References\StorageManageServiceReference\ClassLibrary.ENUM.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StorageManageServiceReference\service1.wsdl" />
-    <None Include="Service References\StorageManageServiceReference\service2.xsd">
+    <None Include="Service References\StorageManageServiceReference\service.wsdl" />
+    <None Include="Service References\StorageManageServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\StorageManageServiceReference\service21.xsd">
+    <None Include="Service References\StorageManageServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\StorageManageServiceReference\ToolingManWPF.StorageManageServiceReference.Message.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\StorageManageServiceReference\ToolingWCF.DataModel1.xsd">
+    <None Include="Service References\StorageManageServiceReference\ToolingWCF.DataModel.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -20,15 +20,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/ToolingWCF/ConditionService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:9090/ToolingWCF/ConditionService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="9bf94bc4-c520-4802-b592-87ab36417ff1" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="7d93d3b3-f76a-4563-ad1e-fa0a1fa69070" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="033483ed-cd9f-42a3-bdd7-5edca31fd533" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
-    <MetadataFile FileName="ClassLibrary.Data1.xsd" MetadataType="Schema" ID="580488bf-a60f-4836-acdc-b0430e9702b6" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
-    <MetadataFile FileName="ClassLibrary.ENUM1.xsd" MetadataType="Schema" ID="6fed4a57-c8ff-4a9b-acac-8846b284010d" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
-    <MetadataFile FileName="ClassLibrary.Utilities1.xsd" MetadataType="Schema" ID="2df74281-e7e9-463f-9856-154d81a7a101" SourceId="1" SourceUrl="http://localhost/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c54457ef-917b-46a9-aa61-8b5373961e11" SourceId="1" SourceUrl="http://localhost:9090/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="e00beb54-969a-4a5d-b6d0-b6bc4e1261cf" SourceId="1" SourceUrl="http://localhost:9090/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="cf69bf11-3544-4f8f-96bc-473766bb4dad" SourceId="1" SourceUrl="http://localhost:9090/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="ClassLibrary.Data.xsd" MetadataType="Schema" ID="0dd58dea-33c1-4d46-9750-6dacc02e35ef" SourceId="1" SourceUrl="http://localhost:9090/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="ClassLibrary.ENUM.xsd" MetadataType="Schema" ID="87ef7622-36fe-487d-a2b7-50d904c77c70" SourceId="1" SourceUrl="http://localhost:9090/ToolingWCF/ConditionService/mex" />
+    <MetadataFile FileName="ClassLibrary.Utilities.xsd" MetadataType="Schema" ID="4a93a2e0-06fa-4d24-aee0-e8975f013956" SourceId="1" SourceUrl="http://localhost:9090/ToolingWCF/ConditionService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

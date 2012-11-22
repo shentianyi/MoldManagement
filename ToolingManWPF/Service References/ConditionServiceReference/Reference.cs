@@ -1236,6 +1236,9 @@ namespace ToolingManWPF.ConditionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConditionService/WorkstationExist", ReplyAction="http://tempuri.org/IConditionService/WorkstationExistResponse")]
         bool WorkstationExist(string stationNR);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConditionService/PositionExist", ReplyAction="http://tempuri.org/IConditionService/PositionExistResponse")]
+        bool PositionExist(string posiNr);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1295,6 +1298,10 @@ namespace ToolingManWPF.ConditionServiceReference {
         
         public bool WorkstationExist(string stationNR) {
             return base.Channel.WorkstationExist(stationNR);
+        }
+        
+        public bool PositionExist(string posiNr) {
+            return base.Channel.PositionExist(posiNr);
         }
     }
 }
