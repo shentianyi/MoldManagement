@@ -19,14 +19,14 @@ namespace ToolingWCF
     public class StorageManageService : IStorageManageService
     {
         /// <summary>
-        /// apply mold
+        /// 申领模具
         /// </summary>
-        /// <param name="moldUseType"></param>
-        /// <param name="moldNR"></param>
-        /// <param name="applicantNR"></param>
-        /// <param name="operatorNR"></param>
-        /// <param name="workstationNR"></param>
-        /// <returns></returns>
+        /// <param name="moldUseType">模具使用类型</param>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="applicantNR">申请员工工号</param>
+        /// <param name="operatorNR">操作员工工号</param>
+        /// <param name="workstationNR">操作台号</param>
+        /// <returns>申请信息</returns>
         public Message ApplyMold(MoldUseType moldUseType, string moldNR, string applicantNR, string operatorNR, string workstationNR)
         {
             try
@@ -91,15 +91,15 @@ namespace ToolingWCF
             }
         }
 
-        /// <summary>
-        /// return the mold in the MoldPool
-        /// </summary>
-        /// <param name="moldNR"></param>
-        /// <param name="applicantNR"></param>
-        /// <param name="operatorNR"></param>
-        /// <param name="workstationNR"></param>
-        /// <param name="moldState"></param>
-        /// <returns></returns>
+     /// <summary>
+     /// 归还模具
+     /// </summary>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="applicantNR">申请员工工号</param>
+        /// <param name="operatorNR">操作员工工号</param>
+     /// <param name="remark">备注</param>
+     /// <param name="moldState">模具状态</param>
+     /// <returns>归还信息</returns>
         public Message ReturnMold(string moldNR, string applicantNR, string operatorNR, string remark, MoldReturnStateType moldState)
         {
             try
@@ -114,8 +114,7 @@ namespace ToolingWCF
 
                     StorageRecord storageRecord = new StorageRecord();
 
-                    //set value of storage record 
-
+                    //set value of storage record
                     IPositionRepository positionRep = new PositionRepository(unitwork);
                     //Position position = positionRep.GetByFacilictyNR(moldNR);
                     Position position = positionRep.GetPartPoolPosition(Settings.Default.MoldPoolPosiNr);
@@ -147,8 +146,8 @@ namespace ToolingWCF
                     // update workstation mold count
                     IWorkstationRepository workstationRep = new WorkstationRepository(unitwork);
                     Workstation workstation = workstationRep.GetById(storageRecord.Source);
-                    workstation.CurrentMoldCount--;
-
+                    if(workstation!=null)
+                      workstation.CurrentMoldCount--;
 
                     unitwork.Submit();
                     return new Message() { MsgType = MsgType.OK, Content = "归还成功" };
@@ -162,12 +161,12 @@ namespace ToolingWCF
         }
 
         /// <summary>
-        /// move the mold from MoldPool in position
+        /// 将模具从缓冲区移到库位
         /// </summary>
-        /// <param name="moldNR"></param>
-        /// <param name="operatorNR"></param>
-        /// <param name="remark"></param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="operatorNR">操作员工号</param>
+        /// <param name="remark">备注</param>
+        /// <returns>操作信息</returns>
         public Message ReturnMoldInPosition(string moldNR, string operatorNR,string remark)
         {
             try
@@ -190,7 +189,6 @@ namespace ToolingWCF
 
                     IPositionRepository positionRep = new PositionRepository(unitwork);
                     Position position = positionRep.GetByFacilictyNR(moldNR);
-                   // Position position = positionRep.GetPartPoolPosition(Settings.Default.MoldPoolPosiNr);
                     storageRecord.PositionId = position.PositionID;
                     storageRecord.StorageRecordNR = GuidUtil.GenerateGUID();
                     storageRecord.Source = currentPosi;
@@ -210,17 +208,6 @@ namespace ToolingWCF
                     IMoldLastRecordRepository lastRecordRep = new MoldLastRecordRepository(unitwork);
                     MoldLastRecord lastRecord = lastRecordRep.GetByMoldNR(moldNR);
                     lastRecord.StorageRecordNR = storageRecord.StorageRecordNR;
-
-                    // update mold state
-                    //mold = moldRep.GetById(storageRecord.TargetNR);
-                    //mold.State = (MoldStateType)moldState;
-
-                    // update workstation mold count
-                    //IWorkstationRepository workstationRep = new WorkstationRepository(unitwork);
-                    //Workstation workstation = workstationRep.GetById(storageRecord.Source);
-                    //workstation.CurrentMoldCount--;
-
-
                     unitwork.Submit();
                     return new Message() { MsgType = MsgType.OK, Content = "入库成功" };
                 }
@@ -233,12 +220,12 @@ namespace ToolingWCF
         }
 
       /// <summary>
-      /// move the mold
+      /// 模具移库
       /// </summary>
-      /// <param name="moldNR"></param>
-      /// <param name="sourcePosiNr"></param>
-      /// <param name="desiPosiNr"></param>
-      /// <returns></returns>
+      /// <param name="moldNR">模具号</param>
+      /// <param name="sourcePosiNr">源位置号</param>
+      /// <param name="desiPosiNr">目标位置号</param>
+      /// <returns>移库信息</returns>
         public Message MoldMoveStore(string moldNR,string warehouseNR,string sourcePosiNr,string desiPosiNr)
         {
             try
@@ -247,7 +234,7 @@ namespace ToolingWCF
                 {
                     IPositionRepository posiRep = new PositionRepository(unitwork);
                     if (!posiRep.PositionExsit(desiPosiNr))
-                        return new Message() { MsgType = MsgType.Warn, Content = "目标库位不存在，请核实" };
+                        return new Message() { MsgType = MsgType.Warn, Content = "目标库位不存在，请核实！" };
 
                     IMoldRepository moldRep = new MoldRepository(unitwork);
                     if (moldRep.GetMoldNrByPosiNr(desiPosiNr).Length == 0)
@@ -255,10 +242,6 @@ namespace ToolingWCF
                         // there is no mold in desitination position 
                         // add new uniqstorage
                         Position position = posiRep.GetByWarehouseNRAndPositionNR(warehouseNR, desiPosiNr);
-                        // IUniqStorageRepository uniqStroageRep = new UniqStorageRepository(unitwork);
-
-                        // uniqStroageRep.DeleteByMoldNr(moldNR);
-
                         // add new uniqstorage
                         IUniqStorageRepository uniqStroageRep = new UniqStorageRepository(unitwork);
                         uniqStroageRep.DeleteByMoldNr(moldNR);
@@ -346,11 +329,15 @@ namespace ToolingWCF
                 return new Message() { MsgType = MsgType.Error, Content = ex.Message };
             }
         }
+
         /// <summary>
-        /// store the mold in the mold position
+        /// 模具入库
         /// </summary>
-        /// <param name="storageRecord">the storage record</param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="operatorNR">操作员工号</param>
+        /// <param name="warehouseNR">仓库号</param>
+        /// <param name="positionNR">库位号</param>
+        /// <returns>入库信息</returns>
         public Message MoldInStore(string moldNR, string operatorNR, string warehouseNR, string positionNR)
         {
             try
@@ -362,10 +349,10 @@ namespace ToolingWCF
 
                     // check if mold is reinstore again
                     if (lastRecordRep.MoldInStored(moldNR) == true)
-                        return new Message() { MsgType = MsgType.Warn, Content = "此模具已经入库" };
+                        return new Message() { MsgType = MsgType.Warn, Content = "此模具已经入库！" };
                     //check if position is available and allow over instore
                     if (positionRep.CheckPositionAvailable(warehouseNR, positionNR, 1) == false && Settings.Default.AllowOverInStore == false)
-                        return new Message() { MsgType = MsgType.Warn, Content = "库位容量已打上限" };
+                        return new Message() { MsgType = MsgType.Warn, Content = "库位容量已打上限！" };
 
                     Position position = positionRep.GetByWarehouseNRAndPositionNR(warehouseNR, positionNR);
 
@@ -421,23 +408,12 @@ namespace ToolingWCF
 
 
         /// <summary>
-        /// part out store
+        /// 模具测试
         /// </summary>
-        /// <param name="partNR"></param>
-        /// <param name="operatorNR"></param>
-        /// <param name="quantity"></param>
-        /// <param name="warehouseNR"></param>
-        /// <param name="positionNR"></param>
-        /// <returns></returns>
-
-
-        /// <summary>
-        /// generate test report for mold
-        /// </summary>
-        /// <param name="moldNR"></param>
-        /// <param name="operatorNR"></param>
-        /// <param name="files"></param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="operatorNR">操作员工号</param>
+        /// <param name="files">文件列表</param>
+        /// <returns>测试信息</returns>
         public Message  MoldTest(string moldNR, string operatorNR, FileUP[] files,int currentCutTimes,bool moldNormal)
         {
             try
@@ -482,13 +458,13 @@ namespace ToolingWCF
                 return new Message() { MsgType = MsgType.Error, Content = ex.Message };
             }
         }
-
         /// <summary>
-        /// generate maintain report for mold
+        /// 模具维护
         /// </summary>
-        /// <param name="moldNR"></param>
-        /// <param name="operatorNR"></param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="operatorNR">操作员工号</param>
+        /// <param name="files">文件列表</param>
+        /// <returns>维护信息</returns>
         public Message MoldMaintain(string moldNR, string operatorNR, FileUP[] files, bool moldNormal)
         {
             try
@@ -534,11 +510,11 @@ namespace ToolingWCF
 
 
         /// <summary>
-        /// upload files
+        /// 上传文件
         /// </summary>
-        /// <param name="files"></param>
-        /// <param name="masterNR"></param>
-        /// <returns></returns>
+        /// <param name="files">文件列表</param>
+        /// <param name="masterNR">附主号</param>
+        /// <returns>上传信息</returns>
         public Message FileUpLoad(FileUP[] files,string masterNR)
         {
             try
@@ -612,12 +588,12 @@ namespace ToolingWCF
         }
 
         /// <summary>
-        /// move mold work station
+        /// 模具移动工作台
         /// </summary>
-        /// <param name="moldNR"></param>
-        /// <param name="operatorNR"></param>
-        /// <param name="targetWStationNR"></param>
-        /// <returns></returns> 
+        /// <param name="moldNR">模具号</param>
+        /// <param name="operatorNR">操作员工号</param>
+        /// <param name="targetWStationNR">目标工作台号</param>
+        /// <returns>移动信息</returns> 
         public Message MoldMoveWorkStation(string moldNR, string operatorNR, string targetWStationNR)
         {
             try
@@ -626,20 +602,39 @@ namespace ToolingWCF
                 {
                     IWorkstationRepository workstationRep = new WorkstationRepository(unitwork);
                     IMoldRepository moldRep = new MoldRepository(unitwork);
+                    IEmployeeRepository empRep = new EmployeeRepository(unitwork);
+
                     Mold mold = moldRep.GetById(moldNR);
+
+                    if (!empRep.Exist(operatorNR))
+                        return new Message() { MsgType = MsgType.Warn, Content = "操作员不存在！" };
+                    if(mold==null)
+                        return new Message() { MsgType = MsgType.Warn, Content = "模具不存在！" };
+                    Workstation tworkstation=workstationRep.GetById(targetWStationNR);
+                    if (tworkstation == null) 
+                      return new Message() { MsgType = MsgType.Warn, Content = "目标工作台不存在！" };
+                    
+                      // check mold is available for move
+                    if (mold.State != MoldStateType.NotReturned)
+                        return new Message() { MsgType = MsgType.Warn, Content = "模具未被借用，请先借用！" };
+
                     MoldView moldview = moldRep.GetMoldViewByMoldNR(moldNR);
 
+                    string currentWorkPosi = moldview.StorageRecordNR == null ? string.Empty : moldRep.GetMoldCurrPosiByRecordNR((Guid)moldview.StorageRecordNR);
 
-                    // check mold is available for apply
-                    if (mold.State != MoldStateType.Normal)
-                        return new Message() { MsgType = MsgType.Warn, Content = "模具未被借用，请先借用！" };
+                 //   if(workstationRep.GetById(currentWorkPosi)==null)
+                  //      return new Message() { MsgType = MsgType.Warn, Content = "模具正在使用的工作台号已经被修改，请先归还此模具再做后续操作！" };
+
+                    if (currentWorkPosi.Equals(targetWStationNR)) 
+                        return new Message() { MsgType = MsgType.Warn, Content = "模具已经在此工作台，不可重复移动！" };
+
+                 
 
                     // check workstaition reach the max mold apply number
                     if (workstationRep.OverAppliedMold(targetWStationNR) == false && Settings.Default.AllowOverApply == false)
                         return new Message() { MsgType = MsgType.Warn, Content = "目标工作台已经到达模具使用上限！" };
 
-
-
+                   
                     IPositionRepository positionRep = new PositionRepository(unitwork);
                     Position position = positionRep.GetByFacilictyNR(moldNR);
 
@@ -648,7 +643,7 @@ namespace ToolingWCF
                     StorageRecord storageRecord = new StorageRecord();
                     storageRecord.StorageRecordNR = GuidUtil.GenerateGUID();
                     storageRecord.PositionId = position.PositionID;
-                    storageRecord.Source = moldview.StorageRecordNR == null ? string.Empty : moldRep.GetMoldCurrPosiByRecordNR((Guid)moldview.StorageRecordNR);
+                    storageRecord.Source = currentWorkPosi;
                     storageRecord.Destination = targetWStationNR;
                     storageRecord.OperatorId = operatorNR;
                     storageRecord.Quantity = 1;
@@ -665,10 +660,13 @@ namespace ToolingWCF
                     lastRecord.StorageRecordNR = storageRecord.StorageRecordNR;
 
                     // update the workstation current mold count
-                    Workstation tworkstation = workstationRep.GetById(storageRecord.Destination);
-                    tworkstation.CurrentMoldCount++;
+                    //Workstation tworkstation = workstationRep.GetById(storageRecord.Destination);
+                    //if(tworkstation!=null)
+                      tworkstation.CurrentMoldCount++;
+                    
                     Workstation sworkstation = workstationRep.GetById(storageRecord.Source);
-                    sworkstation.CurrentMoldCount--;
+                    if(sworkstation!=null)
+                       sworkstation.CurrentMoldCount--;
 
                     unitwork.Submit();
                     return new Message() { MsgType = MsgType.OK, Content = "移动工作台成功！" };

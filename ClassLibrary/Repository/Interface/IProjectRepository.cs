@@ -8,35 +8,35 @@ namespace ClassLibrary.Repository.Interface
 {
     public interface IProjectRepository
     {
-        /// <summary>
-        /// add one project to database
+        ///<summary>
+        /// 新建成本中心
         /// </summary>
-        /// <param name="project">the instance of Project</param>
+        /// <param name="project">成本中心</param>
         void Add(Project project);
 
         /// <summary>
-        ///  add more than one projects to database
+        /// 新建多个成本中心
         /// </summary>
-        /// <param name="projects">the instances of Project</param>
+        /// <param name="projects">成本中心列表</param>
         void Add(List<Project> projects);
 
         /// <summary>
-        ///  get one project by project id
+        ///  根据成本中心号获得成本中心
         /// </summary>
-        /// <param name="projectId">the id of project</param>
-        /// <returns>return one project which one's id is passed</returns>
+        /// <param name="projectId">成本中心号</param>
+        /// <returns>成本中心</returns>
         Project GetProjectById(string projectId);
 
         /// <summary>
-        /// delete one project by project id
+        /// 根据成本中心号获得成本中心
         /// </summary>
-        /// <param name="projectId">the id of project</param>
+        /// <param name="projectId">成本中心号</param>
         void DeleteById(string projectId);
 
         /// <summary>
-        /// get all projects
+        /// 获得全部成本中心
         /// </summary>
-        /// <returns>return the list of projects</returns>
+        /// <returns>成本中心列表</returns>
         List<Project> All();
     }
 }

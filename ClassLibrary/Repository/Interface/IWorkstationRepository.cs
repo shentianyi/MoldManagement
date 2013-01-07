@@ -8,57 +8,25 @@ namespace ClassLibrary.Repository.Interface
 {
     public interface IWorkstationRepository
     {
-        ///// <summary>
-        ///// add one workstaion into database
-        ///// </summary>
-        ///// <param name="workstation">the instance of workstaion</param>
-        //void Add(Workstation workstation);
-
-        ///// <summary>
-        ///// add one than one workstaions into database
-        ///// </summary>
-        ///// <param name="workstations">the instances of workstaion</param>
-        //void Add(List<Workstation> workstations);
-
-        ///// <summary>
-        ///// delete workstation by its id
-        ///// </summary>
-        ///// <param name="workstationId">the id of workstation</param>
-        //void DeleteById(int workstationId);
-
-        ///// <summary>
-        ///// delete one or more than one workstations by projectId
-        ///// </summary>
-        ///// <param name="projectId">the id of the project</param>
-        //void DeleteByProjectId(int projectId);
-
         /// <summary>
-        /// get one one workstations by id
+        /// 根据操作台号获取操作台
         /// </summary>
-        /// <param name="workstationId">the id of workstation</param>
-        /// <returns>the instance of workstation</returns>
+        /// <param name="workstationId">操作台号</param>
+        /// <returns>操作台</returns>
         Workstation GetById(string workstationId);
 
         /// <summary>
-        /// return if the workstation has over applied the mold
+        /// 根据操作台号，判断操作台是否超借
         /// </summary>
-        /// <param name="workstationId"></param>
-        /// <returns></returns>
+        /// <param name="workstationId">操作台号</param>
+        /// <returns>判断结果</returns>
         bool OverAppliedMold(string workstationId);
 
-        ///// <summary>
-        ///// get the workstaions by project id in the form of list
-        ///// </summary>
-        ///// <param name="projectId">the id of workstaion's project</param>
-        ///// <returns>the list of workstation</returns>
-        //List<Workstation> GetByProjectId(int projectId);
-
-        ///// <summary>
-        ///// get all workstaions
-        ///// </summary>
-        ///// <returns>the workstations in the form of list</returns>
-        //List<Workstation> All();
-        
+        /// <summary>
+        /// 根据操作台号，判断是否存在
+        /// </summary>
+        /// <param name="workstationNR">操作台号</param>
+        /// <returns>判断结果</returns>
         bool Exist(string workstationNr);
       
     }

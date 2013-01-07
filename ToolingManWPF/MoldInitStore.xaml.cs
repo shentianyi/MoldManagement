@@ -20,10 +20,18 @@ namespace ToolingManWPF
     /// </summary>
     public partial class MoldInitStore : Window
     {
+        /// <summary>
+        /// 实例化窗体
+        /// </summary>
         public MoldInitStore()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// 按钮点击事件-模具添库
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void OKBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(MoldNRTB.Text) || string.IsNullOrWhiteSpace(WarehouseNRTB.Text) || string.IsNullOrWhiteSpace(PositionNRTB.Text))

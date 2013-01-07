@@ -9,41 +9,42 @@ namespace ClassLibrary.Repository.Interface
     public interface IMoldTypeRepositotry
     {
         /// <summary>
-        /// add one mold type
+        /// 新建模具型号
         /// </summary>
-        /// <param name="moldType">the instance of mold type</param>
+        /// <param name="moldType">模具型号</param>
         void Add(MoldType moldType);
 
         /// <summary>
-        /// add mold types in the form of list
+        /// 新建多个模具型号
         /// </summary>
-        /// <param name="moldTypes">the list of mold types</param>
+        /// <param name="moldTypes">模具型号列表</param>
         void Add(List<MoldType> moldTypes);
 
-       /// <summary>
-       /// get one mold type by its id
-       /// </summary>
-       /// <param name="moldTypeId">the NR of mold type</param>
-       /// <returns>the instance of mold type</returns>
+        /// <summary>
+        /// 根据模具型号号获得模具型号
+        /// </summary>
+        /// <param name="moldTypeId">模具型号号</param>
+        /// <returns>模具型号</returns>
         MoldType GetById(string moldTypeId);
 
         /// <summary>
-        /// get mold type by mold id
+        /// 根据模具号获得模具型号
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the instance of mold type</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具型号</returns>
         MoldType GetByMoldNR(string moldNR);
 
         /// <summary>
-        /// delete the mold type by its id
+        /// 根据模具型号号删除模具型号
         /// </summary>
-        /// <param name="moldTypeId">the NR of mold type</param>
+        /// <param name="moldTypeId">模具型号号</param>
         void DeleteById(string moldTypeId);
 
-       /// <summary>
-       /// get all mold types in the form of list
-       /// </summary>
-       /// <returns>the list of mold types</returns>
+
+        /// <summary>
+        /// 获得全部模具型号
+        /// </summary>
+        /// <returns>模具型号列表</returns>
         List<MoldType> All();
     }
 }

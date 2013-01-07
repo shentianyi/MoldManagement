@@ -106,5 +106,21 @@
             </Button>
         </StackPanel>
 
+        <StackPanel  Grid.Row="3"  Grid.Column="3">
+            <Button Content="数据导出" Name="DataExportBtn" Click="DataExportBtn_Click" 
+                      Height="130" Width="130" 
+                Foreground="White" FontSize="28" BorderBrush="Transparent" Style="{Binding}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F6408" Offset="0" />
+                        <GradientStop Color="#FF42B802" Offset="1" />
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect Opacity="0.295" />
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+        
     </Grid>
 </Window>

@@ -25,6 +25,9 @@ namespace ToolingManWPF
     /// </summary>
     public partial class Search : Window
     {
+        /// <summary>
+        /// 实例化窗体
+        /// </summary>
         private Search()
         {
             InitializeComponent();
@@ -45,14 +48,22 @@ namespace ToolingManWPF
         }
 
 
-        private delegate void LoadConditionDelegate();  
-
+        private delegate void LoadConditionDelegate();
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
           this.Dispatcher.BeginInvoke(DispatcherPriority.Normal,new LoadConditionDelegate(LoadConditions));
            // LoadConditions();
         }
-
+        /// <summary>
+        /// 按钮点击事件-搜索模具
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
             MoldSearchCondition condition = new MoldSearchCondition();
@@ -68,7 +79,7 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// load conditions 
+        /// 加载选择条件
         /// </summary>
         private void LoadConditions()
         {
@@ -100,11 +111,11 @@ namespace ToolingManWPF
 
         }
 
-       /// <summary>
-       /// show details of mold
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
+        /// <summary>
+        /// 按钮点击事件-查看模具详细信息
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void DetailBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MoldBaseInfoDG.SelectedItem != null)
@@ -116,10 +127,10 @@ namespace ToolingManWPF
 
         }
         /// <summary>
-        /// apply the mold
+        /// 按钮点击事件-申领模具
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MoldBaseInfoDG.SelectedItem != null)
@@ -134,10 +145,10 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// return mold
+        /// 按钮点击事件-归还模具
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ReturnBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MoldBaseInfoDG.SelectedItem != null)
@@ -150,7 +161,11 @@ namespace ToolingManWPF
                 }
             }
         }
-
+        /// <summary>
+        /// 按钮点击事件-模具入库
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void MoldInStoreBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MoldBaseInfoDG.SelectedItem != null)
@@ -165,7 +180,11 @@ namespace ToolingManWPF
                 }
             }
         }
-
+        /// <summary>
+        /// 窗体关闭事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             instance = null;

@@ -67,6 +67,7 @@
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\DataSources\ToolingWCF.DataModel.ClientSetting.datasource" />
     <None Include="Properties\DataSources\ToolingWCF.DataModel.MoldBaseInfo.datasource" />

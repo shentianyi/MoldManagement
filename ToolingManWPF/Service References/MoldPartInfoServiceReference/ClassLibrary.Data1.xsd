@@ -84,4 +84,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UniqStorage" nillable="true" type="tns:UniqStorage" />
+  <xs:complexType name="ArrayOfReportView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReportView" nillable="true" type="tns:ReportView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReportView" nillable="true" type="tns:ArrayOfReportView" />
+  <xs:complexType name="ReportView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OperatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportId" type="ser:guid" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ClassLibrary.ENUM" minOccurs="0" name="ReportType" type="q5:ReportType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportView" nillable="true" type="tns:ReportView" />
 </xs:schema>

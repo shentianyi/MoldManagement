@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="jYbzMDjr1txMcdEkZEleGbiOSJc=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="82ua2CVX0mgauGkSMtRs5ugeo6Q=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="moldpartinfoservice1">
       <properties>
@@ -37,7 +37,7 @@
           <serializedValue>65536</serializedValue>
         </property>
         <property path="/messageEncoding" isComplexType="false" isExplicitlyDefined="true" clrType="System.ServiceModel.WSMessageEncoding, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>Text</serializedValue>
+          <serializedValue>Mtom</serializedValue>
         </property>
         <property path="/proxyAddress" isComplexType="false" isExplicitlyDefined="false" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="moldpartinfoservice1" contract="MoldPartInfoServiceReference.IMoldPartInfoService" bindingType="basicHttpBinding" address="http://localhost:9090/ToolingWCF/MoldPartInfoService/" bindingConfiguration="moldpartinfoservice1">
+    <endpoint name="moldpartinfoservice" contract="MoldPartInfoServiceReference.IMoldPartInfoService" bindingType="basicHttpBinding" address="http://localhost:9090/ToolingWCF/MoldPartInfoService/" bindingConfiguration="moldpartinfoservice1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:9090/ToolingWCF/MoldPartInfoService/</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>moldpartinfoservice1</serializedValue>
+          <serializedValue>moldpartinfoservice</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

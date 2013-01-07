@@ -79,17 +79,6 @@ namespace ToolingWCF
         [OperationContract]
         List<MoldReleaseInfo> GetMoldReleaseInfoByMoldNRInPage(string moldNR, int pageIndex, int pageSize, string operatorId, DateTime? startDate, DateTime? endDate);
 
-        /// <summary>
-        /// get the parts by multi conditions
-        /// </summary>
-        /// <param name="partGroupNR"></param>
-        /// <param name="partNR"></param>
-        /// <param name="warehouseNR"></param>
-        /// <param name="positionNR"></param>
-        /// <param name="startDate"></param>
-        /// <param name="endDate"></param>
-        /// <returns></returns>
-    
 
         /// <summary>
         /// get file from server by file name
@@ -126,9 +115,15 @@ namespace ToolingWCF
         /// <summary>
         /// get mold current position
         /// </summary>
-        /// <param name="moldNR"></param>
+        /// <param name="moldNr"></param>
         /// <returns></returns>
         [OperationContract]
         string GetMoldCurrentPosition(string moldNr);
+
+        [OperationContract]
+        List<ReportView> GetReportViewByDate(ReportType type, DateTime? startDate, DateTime? endDate);
+
+        [OperationContract]
+        List<StorageRecord> GetStoreRecordByDate(int type, DateTime? startDate, DateTime? endDate);
     }
 }

@@ -43,6 +43,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ToolingManWPF.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -71,6 +72,9 @@
   <ItemGroup>
     <Reference Include="log4net">
       <HintPath>..\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Nini">
       <HintPath>..\DLL\Nini.dll</HintPath>
@@ -103,6 +107,9 @@
     <Compile Include="BasiscInfo.xaml.cs">
       <DependentUpon>BasiscInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataExporter.xaml.cs">
+      <DependentUpon>DataExporter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\BasicMessage.cs" />
     <Compile Include="Data\UserListBoxItem.cs" />
     <Compile Include="DynamicInfo.xaml.cs">
@@ -110,6 +117,7 @@
     </Compile>
     <Compile Include="Helper\ClientSettingUpdateHelper.cs" />
     <Compile Include="Helper\ForecolorConverter.cs" />
+    <Compile Include="Helper\GenExcelHelper.cs" />
     <Compile Include="Helper\OverDateValidateConverter.cs" />
     <Compile Include="InOutInfo.xaml.cs">
       <DependentUpon>InOutInfo.xaml</DependentUpon>
@@ -163,6 +171,10 @@
     <Compile Include="Utilities\FileFilterUtil.cs" />
     <Compile Include="Utilities\FileUtil.cs" />
     <Page Include="BasiscInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataExporter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,6 +339,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\MoldPartInfoServiceReference\ToolingManWPF.MoldPartInfoServiceReference.Position.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MoldPartInfoServiceReference\ToolingManWPF.MoldPartInfoServiceReference.ReportView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\MoldPartInfoServiceReference\ToolingManWPF.MoldPartInfoServiceReference.StorageRecord.datasource">

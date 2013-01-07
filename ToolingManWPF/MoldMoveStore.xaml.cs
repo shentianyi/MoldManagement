@@ -21,6 +21,12 @@ namespace ToolingManWPF
     /// </summary>
     public partial class MoldMoveStore : Window
     {
+
+        /// <summary>
+        /// 实例化窗体
+        /// </summary>
+       /// <param name="moldNr">模具号</param>
+       /// <param name="moldPosi">模具库位号</param>
         public MoldMoveStore(string moldNr,string moldPosi)
         {
             InitializeComponent();
@@ -28,7 +34,11 @@ namespace ToolingManWPF
             CurrentPosiLab.Content = moldPosi;
             OKBtn.IsEnabled = false;
         }
-
+        /// <summary>
+        /// 按钮点击事件-模具移库
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void OKBtn_Click(object sender, RoutedEventArgs e)
         {
             StorageManageServiceClient client = new StorageManageServiceClient();
@@ -40,6 +50,11 @@ namespace ToolingManWPF
              }
         }
 
+        /// <summary>
+        /// 按钮点击事件-判断模具移库合法性
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void CheckMoldBtn_Click(object sender, RoutedEventArgs e)
         {
             if (DesiPosiNRTB.Text.Length > 0)

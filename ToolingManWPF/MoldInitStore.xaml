@@ -33,7 +33,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="BannerBanner.jpg"/>
             </Grid.Background>
-            <Label Content="模具入库 / Mold In Stock" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,12" Foreground="White" FontSize="13.333"/>
+            <Label Content="模具添库 / Mold Init Stock" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,12" Foreground="White" FontSize="13.333"/>
         </Grid>
 
         <Grid Grid.Row="1">

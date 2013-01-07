@@ -25,6 +25,10 @@ namespace ToolingManWPF
 
         private string moldNR;
 
+        /// <summary>
+        /// 实例化页面
+        /// </summary>
+        /// <param name="moldNR">模具号</param>
         public DynamicInfo(string moldNR )
         {
             this.moldNR = moldNR;
@@ -32,6 +36,11 @@ namespace ToolingManWPF
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 页面加载事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(moldNR))

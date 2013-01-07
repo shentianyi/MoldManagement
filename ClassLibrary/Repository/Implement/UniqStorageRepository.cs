@@ -6,78 +6,41 @@ using ClassLibrary.Data;
 
 namespace ClassLibrary.Repository.Interface
 {
+
+    /// <summary>
+    /// 唯一件库存仓库
+    /// </summary>
+    /// <param name="_context"></param>
     public class UniqStorageRepository : IUniqStorageRepository
     {
-        
-          ToolManDataContext context;
+        ToolManDataContext context;
 
-          public UniqStorageRepository(IUnitOfWork _context)
+        /// <summary>
+        /// 实例化唯一件库存仓库
+        /// </summary>
+        /// <param name="_context"></param>
+        public UniqStorageRepository(IUnitOfWork _context)
         {
             this.context = _context as ToolManDataContext;
         }
         /// <summary>
-        /// add one uniqStorage
+        /// 添加唯一件库存
         /// </summary>
-        /// <param name="uniqStorage">the instance of uniqStorage</param>
-          public void Add(UniqStorage uniqStorage)
-          {
-              context.UniqStorage.InsertOnSubmit(uniqStorage);
-          }
+        /// <param name="uniqStorage">唯一件库存</param>
+        public void Add(UniqStorage uniqStorage)
+        {
+            context.UniqStorage.InsertOnSubmit(uniqStorage);
+        }
 
-        ///// <summary>
-        ///// add more than one uniqStorages 
-        ///// </summary>
-        ///// <param name="uniqStorages">list of uniqStorage</param>
-        //void Add(List<UniqStorage> uniqStorages);
-
-        ///// <summary>
-        ///// delete storage record by its nr
-        ///// </summary>
-        ///// <param name="storageNR"></param>
-        //void DeleteByStorageNR(string storageNR);
 
         /// <summary>
-        /// delete the uniq storage by the mold nr
+        /// 根据模具号删除唯一件库存
         /// </summary>
-        /// <param name="moldNr"></param>
-          public void DeleteByMoldNr(string moldNr)
-          {
-              context.UniqStorage.DeleteOnSubmit(context.UniqStorage.SingleOrDefault(u=>u.UniqNR.Equals(moldNr)));
-          }
-        /// <summary>
-        /// get the list of uniqStorage by its partGroup id
-        /// </summary>
-        /// <param name="partGroupNR">the NR of partGroup</param>
-        /// <returns>the list of uniqStorageview</returns>
-       // List<UniqStorageView> GetByPartGroupNR(int partGroupNR);
+        /// <param name="moldNr">模具号</param>
+        public void DeleteByMoldNr(string moldNr)
+        {
+            context.UniqStorage.DeleteOnSubmit(context.UniqStorage.SingleOrDefault(u => u.UniqNR.Equals(moldNr)));
+        }
 
-        /// <summary>
-        /// get the list of uniqStorage by its part id
-        /// </summary>
-        /// <param name="partId">the id of part</param>
-        /// <returns>the list of uniqStorageview</returns>
-       // List<UniqStorageView> GetByPartId(string partId);
-
-        /// <summary>
-        /// get the list of uniqStorage by its warehouse id
-        /// </summary>
-        /// <param name="partGroupNR">the id of warehouse</param>
-        /// <returns>the list of uniqStorageview</returns>
-        //List<UniqStorageView> GetByWarehouseId(int warehouseId);
-
-        /// <summary>
-        /// get the list of uniqStorage by its position id
-        /// </summary>
-        /// <param name="partGroupNR">the id of position</param>
-        /// <returns>the list of uniqStorageview</returns>
-        //List<UniqStorageView> GetByPositionId(int positionId);
-
-        /// <summary>
-        /// get the list of uniqStorage by its FIFO range
-        /// </summary>
-        /// <param name="startFIFO">the FIFO of the uniqStorage</param>
-        /// <param name="endFIFO">the FIFO of the uniqStorage</param>
-        /// <returns>the list of uniqStorageview</returns>
-       // List<UniqStorageView> GetByFIFO(DateTime startFIFO, DateTime endFIFO);
     }
 }

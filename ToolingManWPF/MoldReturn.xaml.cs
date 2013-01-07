@@ -21,9 +21,11 @@ namespace ToolingManWPF
 
     public partial class MoldReturn : Window
     {
+
         /// <summary>
-        /// return mold from searchUI
+        /// 实例化窗体
         /// </summary>
+        /// <param name="moldNr">模具号</param>
         public MoldReturn(string moldNR)
         {
             InitializeComponent();
@@ -31,6 +33,9 @@ namespace ToolingManWPF
             ApplicantNRTB.Focus();
         }
 
+        /// <summary>
+        /// 实例化窗体
+        /// </summary>
         public MoldReturn()
         {
             InitializeComponent();
@@ -38,6 +43,11 @@ namespace ToolingManWPF
         }
 
         private delegate void LoadMoldReturnState();
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new LoadMoldReturnState(LoadMoldReturnStateCondition));
@@ -45,7 +55,7 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// initial mold use way for choose
+        /// 加载模具归还状态条件
         /// </summary>
         private void LoadMoldReturnStateCondition()
         {
@@ -56,10 +66,10 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// return mold
+        /// 按钮点击事件-模具归还
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ReturnMoldBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(MoldNRTB.Text) && !string.IsNullOrWhiteSpace(ApplicantNRTB.Text))
@@ -100,7 +110,11 @@ namespace ToolingManWPF
                 MessageBox.Show("请将 模具号，退料员工号 填写完整");
             }
         }
-
+        /// <summary>
+        /// 按钮点击事件-模具入库
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void MoldInStoreBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(MoldNRTB.Text) || string.IsNullOrWhiteSpace(ApplicantNRTB.Text))
@@ -141,18 +155,31 @@ namespace ToolingManWPF
             }
         }
 
+        /// <summary>
+        /// 键盘释放事件-聚焦申领员工输入框
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void MoldNRTB_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
                 ApplicantNRTB.Focus();
         }
-
+        /// <summary>
+        /// 键盘释放事件-聚焦备注输入框
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ApplicantNRTB_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
                 RemarkTB.Focus();
         }
-
+        /// <summary>
+        /// 键盘释放事件-聚焦归还按钮
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void RemarkTB_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

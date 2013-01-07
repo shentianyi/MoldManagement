@@ -9,53 +9,22 @@ namespace ClassLibrary.Repository.Interface
     public interface IEmployeeRepository
     {
         /// <summary>
-        /// add one employee
+        /// 新建单个职工
         /// </summary>
-        /// <param name="employee">the instance of class employee</param>
+        /// <param name="employee">职工</param>
         void Add(Employee employee);
 
         /// <summary>
-        /// add more than one employees 
+        /// 新建多个职工
         /// </summary>
-        /// <param name="employees">the list of employees</param>
+        /// <param name="employees">职工列表</param>
         void Add(List<Employee> employees);
 
         /// <summary>
-        /// delete one employee by its id
+        /// 根据职工工号，判断职工是否错在
         /// </summary>
-        /// <param name="employeeId">the id of employee</param>
-        void DeleteById(string employeeId);
-
-        /*
-        /// <summary>
-        /// delete employees by its employee type id 
-        /// </summary>
-        /// <param name="employeeTypeId">he id of employee's employee type id</param>
-        void DeleteByEmployeeTypeId(int employeeTypeId);
-         */
-
-        /// <summary>
-        /// get one employee by its id
-        /// </summary>
-        /// <param name="employeeId">the id of employee</param>
-        /// <returns>one instance of class employee</returns>
-        Employee GetById(string employeeId);
-
-        /*
-        /// <summary>
-        /// get the list of employees by the employee type id
-        /// </summary>
-        /// <param name="employeeTypeId">the id of employee's employee type id</param>
-        /// <returns>the list of employees</returns>
-        List<Employee> GetByEmployeeTypeId(int employeeTypeId);
-        */
-
-        /// <summary>
-        /// get all employees in the form of list
-        /// </summary>
-        /// <returns>the list of employees</returns>
-        List<Employee> All();
-
+        /// <param name="empNr">职工工号</param>
+        /// <returns>判断结果</returns>
         bool Exist(string empNr);
     }
 }

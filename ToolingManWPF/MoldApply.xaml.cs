@@ -24,10 +24,11 @@ namespace ToolingManWPF
     public partial class MoldApply : Window
     {
         MoldBaseInfo moldBaseInfo = null;
+
         /// <summary>
-        /// apply mold from search UI
+        /// 实例化窗体
         /// </summary>
-        /// <param name="moldNR"></param>
+        /// <param name="moldNR">模具基本信息</param>
         public MoldApply(MoldBaseInfo baseInfo)
         {
             InitializeComponent();
@@ -37,6 +38,9 @@ namespace ToolingManWPF
             ApplicantNRTB.Focus();
         }
 
+        /// <summary>
+        /// 实例化窗体
+        /// </summary>
         public MoldApply()
         {
             InitializeComponent();
@@ -45,16 +49,21 @@ namespace ToolingManWPF
 
 
         private delegate void LoadMoldUseType();
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal,new  LoadMoldUseType(LoadMoldUseTypeCondition));
         }
 
         /// <summary>
-        /// apply mold
+        /// 按钮点击事件-申领模具
         /// </summary>
-        /// <param name="gsender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void MoldApplyBtn_Click(object sender, RoutedEventArgs e)
         {
             if ((ToolingManWPF.ConditionServiceReference.MoldStateType)moldBaseInfo.State != ToolingManWPF.ConditionServiceReference.MoldStateType.Normal
@@ -77,7 +86,7 @@ namespace ToolingManWPF
                     if (!conditionclient.WorkstationExist(WorkstationNRTB.Text))
                     {
                         bmsg.Result = false;
-                        bmsg.MsgContent.Add("压接机");
+                        bmsg.MsgContent.Add("工作台");
                     }
                     if (bmsg.Result == false)
                     {
@@ -106,7 +115,7 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// initial mold use way for choose
+        /// 加载模具使用类型条件
         /// </summary>
         private void LoadMoldUseTypeCondition()
         {
@@ -115,18 +124,33 @@ namespace ToolingManWPF
             MoldUseWayCB.ItemsSource = moldUseTypeItems;
         }
 
+        /// <summary>
+        /// 键盘释放事件-聚焦工作台输入框
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ApplicantNRTB_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
                 WorkstationNRTB.Focus();
         }
 
+        /// <summary>
+        /// 键盘释放事件-模具号输入框
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void WorkstationNRTB_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
                 EnsureMoldNRTB.Focus();
         }
 
+        /// <summary>
+        /// 键盘释放事件-聚焦申领按钮
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void EnsureMoldNRTB_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

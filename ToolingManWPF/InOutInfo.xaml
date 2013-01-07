@@ -29,13 +29,13 @@
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     <StackPanel Margin="0,0,40,0">
                         <Label Content="日期从"></Label>
-                        <DatePicker Name="startDateDP" DisplayDateEnd="{Binding ElementName=endDateDP,Path=Text}"/>
+                        <DatePicker Name="startDateDP" />
 
 
                     </StackPanel>
                     <StackPanel Margin="0,0,39,0">
                         <Label Content="日期至"/>
-                        <DatePicker Name="endDateDP" DisplayDateStart="{Binding ElementName=startDateDP, Path=Text}"/>
+                        <DatePicker Name="endDateDP" />
 
 
                     </StackPanel>

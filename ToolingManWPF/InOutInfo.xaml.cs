@@ -23,6 +23,11 @@ namespace ToolingManWPF
     public partial class InOutInfo : Page
     {
         private string moldNR;
+
+        /// <summary>
+        /// 实例化页面
+        /// </summary>
+        /// <param name="moldNR">模具号</param>
         public InOutInfo(string moldNR)
         {
             this.moldNR = moldNR;
@@ -34,6 +39,11 @@ namespace ToolingManWPF
             
         }
 
+        /// <summary>
+        /// 按钮点击事件-查询出入信息
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void QueryBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(moldNR))

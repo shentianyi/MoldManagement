@@ -32,13 +32,9 @@
                 <ImageBrush ImageSource="BannerBanner.jpg"/>
             </Grid.Background>
             <Label Content="模具查询 / Mold Search" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,0,0,12" Foreground="White" FontSize="13.333"/>
-
-
         </Grid>
 
-
-
-        <Grid Name="body" Grid.Row=" 1" Margin="10,16,10,20">
+       <Grid Name="body" Grid.Row=" 1" Margin="10,16,10,20">
             <Grid.ColumnDefinitions  >
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>

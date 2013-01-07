@@ -7,42 +7,56 @@ using ClassLibrary.Data;
 
 namespace ClassLibrary.Repository.Implement
 {
+
+    /// <summary>
+    /// 操作台仓库
+    /// </summary>
+    /// <param name="_context"></param>
     public class WorkstationRepository : IWorkstationRepository
     {
-          private ToolManDataContext context;
-
-          public WorkstationRepository(IUnitOfWork _context)
-          {
-              this.context = _context as ToolManDataContext;
-          }
-          /// <summary>
-          /// get one one workstations by id
-          /// </summary>
-          /// <param name="workstationId">the id of workstation</param>
-          /// <returns>the instance of workstation</returns>
-          public Workstation GetById(string workstationId)
-          {
-              Workstation workstation = context.Workstation.Single(w => w.WorkstationID.Equals(workstationId));
-              return workstation;
-          }
+        private ToolManDataContext context;
 
         /// <summary>
-        /// return if the workstation has over applied the mold
+        /// 实例化操作台仓库
         /// </summary>
-        /// <param name="workstationId"></param>
-        /// <returns></returns>
-          public bool OverAppliedMold(string workstationId)
-          {
-              Workstation workstation=GetById(workstationId);
+        /// <param name="_context"></param>
+        public WorkstationRepository(IUnitOfWork _context)
+        {
+            this.context = _context as ToolManDataContext;
+        }
+        /// <summary>
+        /// 根据操作台号获取操作台
+        /// </summary>
+        /// <param name="workstationId">操作台号</param>
+        /// <returns>操作台</returns>
+        public Workstation GetById(string workstationId)
+        {
+            Workstation workstation = context.Workstation.SingleOrDefault(w => w.WorkstationID.Equals(workstationId));
+            return workstation;
+        }
 
-              return workstation.CurrentMoldCount < workstation.MaxMoldCount;
-          }
+        /// <summary>
+        /// 根据操作台号，判断操作台是否超借
+        /// </summary>
+        /// <param name="workstationId">操作台号</param>
+        /// <returns>判断结果</returns>
+        public bool OverAppliedMold(string workstationId)
+        {
+            Workstation workstation = GetById(workstationId);
 
-          public bool Exist(string workstationNR)
-          {
-              if (context.Workstation.Where(e => e.WorkstationID.Equals(workstationNR)).Count() > 0)
-                  return true;
-              return false;
-          }
+            return workstation.CurrentMoldCount < workstation.MaxMoldCount;
+        }
+
+        /// <summary>
+        /// 根据操作台号，判断是否存在
+        /// </summary>
+        /// <param name="workstationNR">操作台号</param>
+        /// <returns>判断结果</returns>
+        public bool Exist(string workstationNR)
+        {
+            if (context.Workstation.Where(e => e.WorkstationID.Equals(workstationNR)).Count() > 0)
+                return true;
+            return false;
+        }
     }
 }

@@ -7,50 +7,58 @@ using ClassLibrary.Data;
 
 namespace ClassLibrary.Repository.Implement
 {
+
+    /// <summary>
+    /// 模具类别仓库
+    /// </summary>
     public class MoldTypeRepository : IMoldTypeRepositotry
     {
         private ToolManDataContext context;
 
+        /// <summary>
+        /// 实例化模具类别仓库
+        /// </summary>
+        /// <param name="_context"></param>
         public MoldTypeRepository(IUnitOfWork _context)
         {
             this.context = _context as ToolManDataContext;
         }
 
         /// <summary>
-        /// add one mold type
+        /// 新建模具型号
         /// </summary>
-        /// <param name="moldType">the instance of mold type</param>
-        public void Add(MoldType moldCate)
+        /// <param name="moldType">模具型号</param>
+        public void Add(MoldType moldType)
         {
-            context.MoldType.InsertOnSubmit(moldCate);
+            context.MoldType.InsertOnSubmit(moldType);
         }
 
         /// <summary>
-        /// add mold types in the form of list
+        /// 新建多个模具型号
         /// </summary>
-        /// <param name="moldTypes">the list of mold types</param>
+        /// <param name="moldTypes">模具型号列表</param>
         public void Add(List<MoldType> moldTypes)
         {
             context.MoldType.InsertAllOnSubmit(moldTypes);
         }
 
         /// <summary>
-        /// get mold type by mold id
+        /// 根据模具号获得模具型号
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the instance of mold type</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具型号</returns>
         public MoldType GetByMoldNR(string moldNR)
         {
             MoldType moldType = (from m in context.Mold
-                                 where m.MoldNR.Equals( moldNR)
+                                 where m.MoldNR.Equals(moldNR)
                                  select m.MoldType).Single();
             return moldType;
         }
 
         /// <summary>
-        /// delete the mold type by its id
+        /// 根据模具型号号删除模具型号
         /// </summary>
-        /// <param name="moldTypeId">the NR of mold type</param>
+        /// <param name="moldTypeId">模具型号号</param>
         public void DeleteById(string moldTypeId)
         {
             MoldType moldtype = GetById(moldTypeId);
@@ -58,20 +66,20 @@ namespace ClassLibrary.Repository.Implement
         }
 
         /// <summary>
-        /// get one mold type by its id
+        /// 根据模具型号号获得模具型号
         /// </summary>
-        /// <param name="moldTypeId">the NR of mold type</param>
-        /// <returns>the instance of mold type</returns>
+        /// <param name="moldTypeId">模具型号号</param>
+        /// <returns>模具型号</returns>
         public MoldType GetById(string moldTypeId)
         {
-            MoldType moldtype = context.MoldType.Single(type => type.MoldTypeID.Equals( moldTypeId));
+            MoldType moldtype = context.MoldType.Single(type => type.MoldTypeID.Equals(moldTypeId));
             return moldtype;
         }
 
         /// <summary>
-        /// get all mold types in the form of list
+        /// 获得全部模具型号
         /// </summary>
-        /// <returns>the list of mold types</returns>
+        /// <returns>模具型号列表</returns>
         public List<MoldType> All()
         {
             List<MoldType> moldTypes = (context.MoldType).ToList();

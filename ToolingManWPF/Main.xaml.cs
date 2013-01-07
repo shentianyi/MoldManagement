@@ -57,6 +57,12 @@ namespace ToolingManWPF
             Lab.Instance.Activate();
         }
 
+        private void DataExportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataExporter.Instance.Show();
+            DataExporter.Instance.Activate();
+        }
+
       
       
     }

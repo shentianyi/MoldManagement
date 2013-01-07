@@ -11,10 +11,10 @@ namespace ClassLibrary.Utilities
     public class EnumUtil
     {
         /// <summary>
-        /// get the enum Desription by the enum value
+        /// 根据枚举值获得枚举描述
         /// </summary>
-        /// <param name="enumValue"></param>
-        /// <returns></returns>
+        /// <param name="enumValue">枚举值</param>
+        /// <returns>枚举描述</returns>
         public static string GetEnumDescriptionByEnumValue(Enum enumValue)
         {
             string description = string.Empty;
@@ -32,14 +32,14 @@ namespace ClassLibrary.Utilities
         }
 
         /// <summary>
-        /// get the enum list
+        /// 根据枚举类型获得枚举列表
         /// </summary>
-        /// <param name="enumType">the type of enum</param>
-        /// <returns>the list of enum</returns>
+        /// <param name="enumType">枚举类型</param>
+        /// <returns>枚举列表</returns>
         public static List<EnumItem> GetEnumItemList(string _enumType)
         {
-            string type = _enumType.Substring(_enumType.LastIndexOf('.')+1, _enumType.Length - _enumType.LastIndexOf('.')-1);
-            Type enumType = Type.GetType("ClassLibrary.ENUM."+type);
+            string type = _enumType.Substring(_enumType.LastIndexOf('.') + 1, _enumType.Length - _enumType.LastIndexOf('.') - 1);
+            Type enumType = Type.GetType("ClassLibrary.ENUM." + type);
             if (!enumType.IsEnum)
                 return null;
             Type descriptionType = typeof(DescriptionAttribute);
@@ -61,7 +61,6 @@ namespace ClassLibrary.Utilities
                 }
             }
             return items;
-
         }
     }
 }

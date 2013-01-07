@@ -8,80 +8,42 @@ namespace ClassLibrary.Repository.Interface
 {
    public  interface IPositionRepository
     {
-       ///// <summary>
-       /////  add one position into database
-       ///// </summary>
-       // /// <param name="position">the instance of position</param>
-       //void Add(Position position);
-
-       ///// <summary>
-       ///// add positions into the database
-       ///// </summary>
-       ///// <param name="positions">the list of positions</param>
-       //void Add(List<Position> positions);
-
-       ///// <summary>
-       ///// get one position by its id, the id is uniqueidentifier
-       ///// </summary>
-       ///// <param name="positionId">the id of position</param>
-       ///// <returns>the instance of position</returns>
-       //Position GetById(Guid positionId);
+        /// <summary>
+        /// 根据设备号获得库位
+        /// </summary>
+        /// <param name="facilictyNR">设备号</param>
+        /// <returns>库位</returns>
+        Position GetByFacilictyNR(string facilictyNR);
 
         /// <summary>
-        /// get position by facility nr
+        /// 根据仓库号、库位号获得库位
         /// </summary>
-        /// <param name="facilictyNR"></param>
-        /// <returns></returns>
-        Position GetByFacilictyNR(string facilictyNR);
-       
-       /// <summary>
-       /// get position by warehouse nr and position nr
-       /// </summary>
-       /// <param name="warehouseNR"></param>
-       /// <param name="positionNR"></param>
-       /// <returns></returns>
+        /// <param name="warehouseNR">仓库号</param>
+        /// <param name="positionNR">库位号</param>
+        /// <returns>库位</returns>
        Position GetByWarehouseNRAndPositionNR(string warehouseNR, string positionNR);
 
        /// <summary>
-       /// check position available
+       /// 根据仓库号、库位号判断库位是否可用
        /// </summary>
-       /// <param name="warehouseNR"></param>
-       /// <param name="positionNR"></param>
-       /// <returns></returns>
+       /// <param name="warehouseNR">仓库号</param>
+       /// <param name="positionNR">库位号</param>
+       /// <returns>判断结果</returns>
         bool CheckPositionAvailable(string warehouseNR, string positionNR, int quantity);
 
-
+        /// <summary>
+        /// 根据零件缓存区号获得库位
+        /// </summary>
+        /// <param name="poolPosiNR">缓存区号</param>
+        /// <returns>库位</returns>
         Position GetPartPoolPosition(string poolPosiNR);
 
-       /// <summary>
-       /// check position exsits
-       /// </summary>
-       /// <param name="posiNr"></param>
-       /// <returns></returns>
+        /// <summary>
+        /// 根据库位号判断库位是否存在
+        /// </summary>
+        /// <param name="posiNr">库位号</param>
+        /// <returns>判断结果</returns>
         bool PositionExsit(string posiNr);
-       ///// <summary>
-       ///// get positions by warehouse id
-       ///// </summary>
-       ///// <param name="wareHouseId">the id of warehouse</param>
-       ///// <returns>the list of positions</returns>
-       //List<Position> GetByWarehouseId(int wareHouseId);
-
-       ///// <summary>
-       /////  delete one position by its id
-       ///// </summary>
-       ///// <param name="positionId">the id of the position</param>
-       //void DeleteById(Guid positionId);
-
-       ///// <summary>
-       ///// delete the position by its warehouse id
-       ///// </summary>
-       ///// <param name="warehouseId">the id of the warehouse</param>
-       //void DeleteByWarehouseId(int warehouseId);
-
-       ///// <summary>
-       ///// get all the positions
-       ///// </summary>
-       ///// <returns>the list of all positions</returns>
-       //List<Position> All();
+      
     }
 }

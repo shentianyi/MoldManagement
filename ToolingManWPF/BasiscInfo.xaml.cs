@@ -29,7 +29,10 @@ namespace ToolingManWPF
         private List<string> imageFilter;
         private List<string> fileControl;
 
-
+        /// <summary>
+        /// 实例化页面
+        /// </summary>
+        /// <param name="moldNR">模具号</param>
         public BasiscInfo(string moldNR)
         {
             fileDialog = new OpenFileDialog();
@@ -44,6 +47,11 @@ namespace ToolingManWPF
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 页面加载事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(moldNR))
@@ -68,22 +76,23 @@ namespace ToolingManWPF
                 }
             }
         }
+
         /// <summary>
-        /// change the position of mold
+        /// 按钮点击事件-显示模具更改库位窗口
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ChangePosiBtn_Click(object sender, RoutedEventArgs e)
         {
             MoldMoveStore moldMove = new MoldMoveStore(moldNR,MoldPosiContent.Content.ToString());
             moldMove.ShowDialog();
         }
-         
+
         /// <summary>
-        /// the evet of he hyperlink
+        /// 链接点击事件-查看文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             Attachment attach = (sender as Hyperlink).DataContext as Attachment;
@@ -108,6 +117,11 @@ namespace ToolingManWPF
                 Process.Start(filepath);
         }
 
+        /// <summary>
+        /// 按钮点击事件-上传文件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void OKBtn_Click(object sender, RoutedEventArgs e)
         {
 
@@ -167,10 +181,10 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// show file dialog to choose file 
+        /// 按钮点击事件-显示浏览文件窗口
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ChooseFileBtn_Click(object sender, RoutedEventArgs e)
         {
             if ((bool)fileDialog.ShowDialog())
@@ -201,10 +215,10 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// remove file user choose
+        /// 按钮点击事件-移除文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void RemoveFileBtn_Click(object sender, RoutedEventArgs e)
         {
             if (FileNameList.SelectedIndex > -1)

@@ -69,7 +69,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
-                    <Label Content="压接机号   :" Margin="0,0,40,0"/>
+                    <Label Content="工作台号   :" Margin="0,0,40,0"/>
                     <TextBox Width="185" Name="WorkstationNRTB" KeyUp="WorkstationNRTB_KeyUp" />
                 </StackPanel>
 

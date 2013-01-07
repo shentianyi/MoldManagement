@@ -25,14 +25,21 @@ namespace ToolingManWPF
     public partial class ReleaseInfo : Page
     {
         private string moldNR = string.Empty;
-
+        /// <summary>
+        /// 实例化页面
+        /// </summary>
+        /// <param name="moldNR">模具号</param>
         public ReleaseInfo(string moldNR)
         {
             this.moldNR = moldNR;
 
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 按钮点击事件-查询放行信息
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void QueryBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(moldNR))
@@ -54,7 +61,11 @@ namespace ToolingManWPF
             AttachmentTB.Inlines.Clear();
         }
 
-
+        /// <summary>
+        /// 选择行改变事件-查询放行信息附加文件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void MoldReleaseInfoDG_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             if (MoldReleaseInfoDG.SelectedItem != null)
@@ -74,13 +85,13 @@ namespace ToolingManWPF
                     }
                 }
             }
-            //MessageBox.Show("dd");
         }
+
         /// <summary>
-        /// the evet of he hyperlink
+        /// 链接点击事件-查看文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             Attachment attach = (sender as Hyperlink).DataContext as Attachment;

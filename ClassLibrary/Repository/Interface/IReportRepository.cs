@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ClassLibrary.Data;
+using ClassLibrary.ENUM;
 
 namespace ClassLibrary.Repository.Interface
 {
@@ -10,49 +11,40 @@ namespace ClassLibrary.Repository.Interface
     {
 
         /// <summary>
-        /// add one report
+        /// 新建报告
         /// </summary>
-        /// <param name="report">the instance of report</param>
+        /// <param name="report">报告</param>
         void Add(Report report);
 
-
-
         /// <summary>
-        /// get the list of report by its mold id
+        /// 根据模具号获得报告视图
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the list of report</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="operatorId">操作员号</param>
+        /// <param name="startDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        /// <returns>报告视图列表</returns>
         List<ReportView> GetReportViewByMoldNR(string moldNR, string operatorId, DateTime? startDate, DateTime? endDate);
 
         /// <summary>
-        /// get the reports by mold id, page, pageSize
+        /// 根据模具号获得报告，进行分页
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <param name="pageIndex">the index of page</param>
-        /// <param name="pageSize">the size of page</param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="operatorId">操作员号</param>
+        /// <param name="startDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        /// <param name="pageIndex">页号</param>
+        /// <param name="pageSize">页数量</param>
+        /// <returns>报告视图列表</returns>
         List<ReportView> GetReportViewByMoldNR(string moldNR, int pageIndex, int pageSize, string operatorId, DateTime? startDate, DateTime? endDate);
-        ///// <summary>
-        ///// get the list of report by its operator id
-        ///// </summary>
-        ///// <param name="operatorId">the id of operator</param>
-        ///// <returns>the list of operator</returns>
-        //List<Report> GetByOperatorId(string operatorId);
 
-        ///// <summary>
-        /////  get reports by the startdate and enddate when the report created
-        ///// </summary>
-        ///// <param name="startDate">the date set as the start condition</param>
-        ///// <param name="endDate">the date set as the end condition</param>
-        ///// <returns>the list storeage record</returns>
-        //List<Report> GetByReportDate(DateTime startDate, DateTime endDate);
-
-        ///// <summary>
-        ///// delete none report by its id
-        ///// </summary>
-        ///// <param name="reportId">the id of report</param>
-        //void DeleteById(int reportId);
-
-        
+        /// <summary>
+        /// 根据时间获得报告
+        /// </summary>
+        /// <param name="type">报告类型</param>
+        /// <param name="startDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        /// <returns>报告视图列表</returns>
+        List<ReportView> GetReportViewByDate(ReportType type, DateTime? startDate, DateTime? endDate);     
     }
 }

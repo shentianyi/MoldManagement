@@ -9,79 +9,105 @@ namespace ClassLibrary.Repository.Interface
 {
     public interface IMoldRepository
     {
-        // add mold
+        /// <summary>
+        /// 新建模具
+        /// </summary>
+        /// <param name="mold">模具</param>
         void Add(Mold mold);
-
-        // add molds
+        /// <summary>
+        /// 新建多个模具
+        /// </summary>
+        /// <param name="molds">模具列表</param>
         void Add(List<Mold> molds);
-
-        // delete mold by mold id
+        /// <summary>
+        /// 根据模具号删除模具
+        /// </summary>
+        /// <param name="moldNR">模具号</param>
         void DeleteById(string id);
 
-        // delete molds by mold type d
+        /// <summary>
+        /// 根据模具型号号删除模具
+        /// </summary>
+        /// <param name="moldTypeId">模具型号号</param>
         void DeleteByMoldTypeId(string moldTypeId);
 
-        // get mold by mold id
+        /// 根据模具号获得模具
+        /// </summary>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具实例</returns>
         Mold GetById(string id);
-
-        // get molds by mold type id
+        /// <summary>
+        /// 根据模具型号号获得模具
+        /// </summary>
+        /// <param name="moldTypeId">模具型号号</param>
+        /// <returns>模具列表</returns>
         List<Mold> GetByMoldTypeId(string moldTypeId);
-
-        // get molds by project id
+        /// <summary>
+        /// 根据项目号获得模具
+        /// </summary>
+        /// <param name="projectId">项目号</param>
+        /// <returns>模具列表</returns>
         List<Mold> GetByProjectId(string projectId);
 
         /// <summary>
-        /// get molds by its state
+        /// 根据模具状态获得模具
         /// </summary>
-        /// <param name="moldState">the state of mold</param>
-        /// <returns>the list of molds</returns>
+        /// <param name="moldState">模具状态</param>
+        /// <returns>模具列表</returns>
         List<Mold> GetByState(MoldStateType moldState);
 
         /// <summary>
-        ///  get mold detail by mold nr
+        ///  根据模具号获得模具视图
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the moldview</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具视图</returns>
         MoldView GetMoldViewByMoldNR(string moldNR);
+        ///  <summary>
+        /// 根据多条件获得模具
+        /// </summary>
+        /// <param name="condition">查询条件</param>
+        /// <returns>模具列表</returns>
+        List<MoldView> GetByMutiConditions(MoldSearchCondition condition);
 
         /// <summary>
-        /// get the list of mold view by the muti conditions
+        /// 根据模具警报状态获得模具视图
         /// </summary>
-        /// <returns>the list of mold view</returns>
-        List<MoldView> GetByMutiConditions(MoldSearchCondition conditions);
-
-
+        /// <param name="type">模具警报状态</param>
+        /// <returns>模具视图列表</returns>
         List<MoldView> GetByWarnType(MoldWarnType type);
-         /// <summary>
-        /// get current position of mold by storage record nr
+
+        /// <summary>
+        /// 根据库存记录号获得模具当前位置
         /// </summary>
-        /// <param name="storageRecordNR"></param>
-        /// <returns></returns>
+        /// <param name="storageRecordNR">库存记录号</param>
+        /// <returns>模具当前位置</returns>
         string GetMoldCurrPosiByRecordNR(Guid storageRecordNR);
 
         /// <summary>
-        /// get mold current position by mold nr
+        /// 根据模具号获得模具当前位置
         /// </summary>
-        /// <param name="moldNR"></param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具当前位置</returns>
         string GetMoldCurrPosiByMoldNR(string moldNR);
 
         /// <summary>
-        /// judege if mold exsits by mold nr
+        /// 根据模具号判断模具是否存在
         /// </summary>
-        /// <param name="moldNR"></param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>判断结果</returns>
         bool MoldExsit(string moldNR);
 
 
-        /// <summary>
-        /// get mold nr by the position nr
+        /// 根据库存位置号获得模具号
         /// </summary>
-        /// <param name="posiNr"></param>
-        /// <returns></returns>
+        /// <param name="posiNr">库存位置号</param>
+        /// <returns>模具号</returns>
         string GetMoldNrByPosiNr(string posiNr);
 
-        // get all molds
+        /// <summary>
+        /// 获得全部模具
+        /// </summary>
+        /// <returns>模具列表</returns>
         List<Mold> All();
     }
 }

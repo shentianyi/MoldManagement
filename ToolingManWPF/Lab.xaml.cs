@@ -19,6 +19,7 @@ using ToolingManWPF.Data;
 using System.IO;
 using System.Windows.Threading;
 using ToolingManWPF.ConditionServiceReference;
+using ToolingManWPF.MoldPartInfoServiceReference;
 
 namespace ToolingManWPF
 {
@@ -47,6 +48,9 @@ namespace ToolingManWPF
             }
         }
 
+        /// <summary>
+        /// 实例化窗体
+        /// </summary>
         public Lab()
         {
             fileDialog = new OpenFileDialog();
@@ -60,6 +64,11 @@ namespace ToolingManWPF
 
         private delegate void LoadConditionDelegate();
 
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new LoadConditionDelegate(LoadConditions));
@@ -67,10 +76,10 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// show file dialog to choose file 
+        /// 按钮点击事件-显示浏览文件窗口
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void ChooseFileBtn_Click(object sender, RoutedEventArgs e)
         {
             if ((bool)fileDialog.ShowDialog())
@@ -101,10 +110,10 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// remove file user choose
+        /// 按钮点击事件-移除文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void RemoveFileBtn_Click(object sender, RoutedEventArgs e)
         {
             if (FileNameList.SelectedIndex > -1)
@@ -112,10 +121,10 @@ namespace ToolingManWPF
         }
 
         /// <summary>
-        /// upload the report and the report
+        /// 按钮点击事件-上传报告
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void UpReportBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MoldNRTB.Text.Length > 0 && OperatorNRTB.Text.Length > 0)
@@ -138,6 +147,13 @@ namespace ToolingManWPF
                     MessageBox.Show(bmsg.MsgText + " 不存在，请重新输入");
                     return;
                 }
+                // MoldPartInfoServiceClient bclient = new MoldPartInfoServiceClient();
+                //MoldBaseInfo moldBaseInfo = bclient.GetMoldBaseInfoByNR(MoldNRTB.Text);
+                //if (moldBaseInfo.State == ToolingManWPF.MoldPartInfoServiceReference.MoldStateType.NotReturned)
+                //{
+                //    MessageBox.Show("模具还未归还！");
+                //    return;
+                //}
 
                 List<FileUP> files = null;
                 long fileTotalLength = 0;
@@ -167,15 +183,15 @@ namespace ToolingManWPF
 
                             fileTotalLength += stream.Length;
 
-                            AttachmentType attachType = AttachmentType.PICTURE;
+                            ToolingManWPF.StorageManageServiceReference.AttachmentType attachType = ToolingManWPF.StorageManageServiceReference.AttachmentType.PICTURE;
 
                             if (imageFilter.Contains(fileType))
                             {
-                                attachType = AttachmentType.PICTURE;
+                                attachType = ToolingManWPF.StorageManageServiceReference.AttachmentType.PICTURE;
                             }
                             else if (documentFilter.Contains(fileType))
                             {
-                                attachType = AttachmentType.DOCUMENT;
+                                attachType = ToolingManWPF.StorageManageServiceReference.AttachmentType.DOCUMENT;
                             }
                             files.Add(new FileUP() { Name = fileName, FileType = fileType, Type = attachType, Data = data });
                         }
@@ -186,16 +202,17 @@ namespace ToolingManWPF
                 if (fileTotalLength < long.Parse((new ConfigUtil("MAXFILELENGTH")).Get("MAXLENGTH")))
                 {
                     Message msg = new Message();
-                    switch ((ReportType)int.Parse(MaintainTypeCB.SelectedValue.ToString()))
+                    switch ((ToolingManWPF.MoldPartInfoServiceReference.ReportType)int.Parse(MaintainTypeCB.SelectedValue.ToString()))
                     {
-                        case ReportType.MaintainReport:
-                            msg = client.MoldMaintain(MoldNRTB.Text, OperatorNRTB.Text, files, (bool)MoldStateCheckBox.IsChecked);
+                        case ToolingManWPF.MoldPartInfoServiceReference.ReportType.MaintainReport:
+                           // msg = client.MoldMaintain(MoldNRTB.Text, OperatorNRTB.Text, files, (bool)MoldStateCheckBox.IsChecked);
+                            msg = client.MoldMaintain(MoldNRTB.Text, OperatorNRTB.Text, files, false);
                             break;
-                        case ReportType.TestReport:
+                        case ToolingManWPF.MoldPartInfoServiceReference.ReportType.TestReport:
                             int c = 0;
                             //int.TryParse(CurrentCutTimeTB.Text,out c);
-
-                            msg = client.MoldTest(MoldNRTB.Text, OperatorNRTB.Text, files, c, (bool)MoldStateCheckBox.IsChecked);
+                            msg = client.MoldTest(MoldNRTB.Text, OperatorNRTB.Text, files, c, false);
+                            //msg = client.MoldTest(MoldNRTB.Text, OperatorNRTB.Text, files, c, (bool)MoldStateCheckBox.IsChecked);
                             break;
                     }
                   
@@ -206,6 +223,9 @@ namespace ToolingManWPF
             }
         }
 
+        /// <summary>
+        /// 加载选择条件
+        /// </summary>
         private void LoadConditions()
         {
             ConditionServiceClient conditionClient = new ConditionServiceClient();
@@ -213,10 +233,15 @@ namespace ToolingManWPF
             ConfigUtil config = new ConfigUtil("partgroup");
             // load the select conditions
 
-            List<EnumItem> reportTypes = conditionClient.GetEnumItems(typeof(ReportType).ToString());
+            List<EnumItem> reportTypes = conditionClient.GetEnumItems(typeof(ToolingManWPF.MoldPartInfoServiceReference.ReportType).ToString());
             MaintainTypeCB.ItemsSource = reportTypes;
         }
 
+        /// <summary>
+        /// 窗体关闭事件
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             instance = null;

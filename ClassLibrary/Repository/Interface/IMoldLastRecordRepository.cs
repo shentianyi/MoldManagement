@@ -9,24 +9,24 @@ namespace ClassLibrary.Repository.Interface
    public interface IMoldLastRecordRepository
     {
 
-       /// <summary>
-       /// add the last apply record
-       /// </summary>
-       /// <param name="record"></param>
+        /// <summary>
+        /// 新建单个模具最新记录
+        /// </summary>
+        /// <param name="record">模具最新记录</param>
        void Add(MoldLastRecord record);
 
        /// <summary>
-       /// get the mold lastest apply record by mold id
+       /// 根据模具号获得模具最新记录
        /// </summary>
-       /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the instance of MoldLastApplyRecord</returns>
+       /// <param name="moldNR">模具号</param>
+       /// <returns>模具最新记录实例</returns>
        MoldLastRecord GetByMoldNR(string moldNR);
 
        /// <summary>
-       /// check wheathe mold has been in store , avoid reistore
+       /// 判断模具是否入库，避免重复入库
        /// </summary>
-       /// <param name="moldNR"></param>
-       /// <returns></returns>
+       /// <param name="moldNR">模具号</param>
+       /// <returns>判断结果</returns>
        bool MoldInStored(string moldNR);
     }
 }

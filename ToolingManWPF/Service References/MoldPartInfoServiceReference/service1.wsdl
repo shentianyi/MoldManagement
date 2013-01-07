@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MoldPartInfoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="moldpartinfoservice_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
@@ -81,6 +88,18 @@
   <wsdl:message name="IMoldPartInfoService_GetMoldCurrentPosition_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMoldCurrentPositionResponse" />
   </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetReportViewByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportViewByDate" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetReportViewByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportViewByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetStoreRecordByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreRecordByDate" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_GetStoreRecordByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreRecordByDateResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMoldPartInfoService">
     <wsdl:operation name="GetMoldByMutiConditions">
       <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldByMutiConditions" message="tns:IMoldPartInfoService_GetMoldByMutiConditions_InputMessage" />
@@ -130,8 +149,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPosition" message="tns:IMoldPartInfoService_GetMoldCurrentPosition_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPositionResponse" message="tns:IMoldPartInfoService_GetMoldCurrentPosition_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetReportViewByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetReportViewByDate" message="tns:IMoldPartInfoService_GetReportViewByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetReportViewByDateResponse" message="tns:IMoldPartInfoService_GetReportViewByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreRecordByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDate" message="tns:IMoldPartInfoService_GetStoreRecordByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDateResponse" message="tns:IMoldPartInfoService_GetStoreRecordByDate_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="moldpartinfoservice" type="tns:IMoldPartInfoService">
+    <wsp:PolicyReference URI="#moldpartinfoservice_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetMoldByMutiConditions">
       <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldByMutiConditions" style="document" />
@@ -234,6 +262,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetMoldCurrentPosition">
       <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportViewByDate">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetReportViewByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreRecordByDate">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

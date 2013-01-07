@@ -15,16 +15,17 @@ using ToolingWCF.Properties;
 using System.IO;
 using System.Transactions;
 using ClassLibrary.Utility;
+using ToolingWCF.Helper;
 
 namespace ToolingWCF
 {
     public class MoldPartInfoService : IMoldPartInfoService
     {
         /// <summary>
-        /// get the molds in form of list by the selected conditions
+        /// 根据搜索条件获得模具基本信息
         /// </summary>
-        /// <param name="conditions">the instance of condition</param>
-        /// <returns>the list of mold</returns>
+        /// <param name="conditions">搜索条件</param>
+        /// <returns>模具基本信息列表</returns>
         public List<MoldBaseInfo> GetMoldByMutiConditions(MoldSearchCondition conditions)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -54,10 +55,10 @@ namespace ToolingWCF
         }
 
         /// <summary>
-        /// get the mold by mold id
+        /// 根据模具号获得模具基本信息
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the instance of Mold</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具基本信息</returns>
         public MoldBaseInfo GetMoldBaseInfoByNR(string moldNR)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -94,10 +95,10 @@ namespace ToolingWCF
 
 
         /// <summary>
-        /// get the mold dynamic info
+        /// 根据模具号获得模具动态信息
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the instance of mold dynamic info</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具基本信息</returns>
         public MoldDynamicInfo GetMoldDynamicInfoByMoldNR(string moldNR)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -129,17 +130,19 @@ namespace ToolingWCF
                     MantainCycle = moldview.MaintainCycle,
                     LastMantainTime = moldview.LastMainedDate.ToString(),
                     State = moldview.State,
-                    StateCN = EnumUtil.GetEnumDescriptionByEnumValue(moldview.State)
+                    StateCN = EnumUtil.GetEnumDescriptionByEnumValue(moldview.State),
+                    ProjectId = moldview.ProjectID,
+                    ProjectName = moldview.ProjectName
                 };
                 return moldDynamicInfo;
             }
         }
 
         /// <summary>
-        /// get the mold apply records by mold id 
+        /// 根据模具号、操作员号、起止日期获得模具基本信息
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the list of the mold apply records</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具基本信息列表</returns>
         public List<StorageRecord> GetMoldApplyRecords(string moldNR, string applicantId, DateTime? startDate, DateTime? endDate)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -152,12 +155,12 @@ namespace ToolingWCF
 
 
         /// <summary>
-        /// get the mold apply records by mold id, page, pageSize
+        /// 根据模具号、操作员号、起止日期、页码信息获得模具基本信息
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <param name="pageIndex">the index of page</param>
-        /// <param name="pageSize">the size of page</param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">页码数量</param>
+        /// <returns>模具基本信息列表</returns>
         public List<StorageRecord> GetMoldApplyRecordsInPages(string moldNR, int pageIndex, int pageSize, string applicantId, DateTime? startDate, DateTime? endDate)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -170,10 +173,10 @@ namespace ToolingWCF
         }
 
         /// <summary>
-        /// get the list of report by its mold nr
+        /// 根据模具号、操作员号、起止日期、页码信息获得模具放行信息
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <returns>the list of report</returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>模具放行信息列表</returns>
         public List<MoldReleaseInfo> GetMoldReleaseInfoByMoldNR(string moldNR, string operatorId, DateTime? startDate, DateTime? endDate)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -201,12 +204,12 @@ namespace ToolingWCF
         }
 
         /// <summary>
-        /// get the reports by mold nr, page, pageSize
+        /// 根据模具号、操作员号、起止日期、页码信息获得模具放行信息
         /// </summary>
-        /// <param name="moldNR">the NR of mold</param>
-        /// <param name="pageIndex">the index of page</param>
-        /// <param name="pageSize">the size of page</param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">页码数量</param>
+        /// <returns>模具放行信息列表</returns>
         public List<MoldReleaseInfo> GetMoldReleaseInfoByMoldNRInPage(string moldNR, int pageIndex, int pageSize, string operatorId, DateTime? startDate, DateTime? endDate)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -234,10 +237,10 @@ namespace ToolingWCF
         }
 
         /// <summary>
-        /// get the report attachments by the report id
+        /// 根据报告号获取附件
         /// </summary>
-        /// <param name="reportId">the id of report</param>
-        /// <returns>the list of attachment</returns>
+        /// <param name="reportId">报告号</param>
+        /// <returns>附件列表</returns>
         public List<Attachment> GetAttachmentById(Guid reportId)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -252,10 +255,10 @@ namespace ToolingWCF
 
 
         /// <summary>
-        /// get file from server by file name
+        /// 根据文件名获得文件
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <param name="fileName">文件名</param>
+        /// <returns>文件</returns>
         public byte[] GetFileByName(string fileName)
         {
             string p = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.Default.FileAttachmentPath);
@@ -273,7 +276,11 @@ namespace ToolingWCF
             return data;
         }
 
-
+        /// <summary>
+        /// 根据模具警报类型获得模具警报信息
+        /// </summary>
+        /// <param name="type">模具警报类型</param>
+        /// <returns>模具警报信息列表</returns>
         public List<MoldWarnInfo> GetMoldWarnInfo(MoldWarnType type)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -287,11 +294,7 @@ namespace ToolingWCF
                     MoldWarnInfo moldWarnInfo = new MoldWarnInfo()
                     {
                         MoldNR = m.MoldNR,
-                        //Name = m.Name,
                         Type = m.TypeName,
-                        //State = m.State,
-                        //StateCN = m.StateCN,
-                        //ProjectId = m.ProjectID,
                         ProjectName = m.ProjectName,
                         MaxLendHour = (double)m.MaxLendHour,
                         LendTime = (DateTime)m.LastRecordDate,
@@ -306,10 +309,10 @@ namespace ToolingWCF
 
 
         /// <summary>
-        /// get mold position by its mold nr
+        /// 根据模具号获得库位
         /// </summary>
-        /// <param name="moldNR"></param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>库位</returns>
         public Position GetMoldPositionByNr(string moldNR)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -320,10 +323,10 @@ namespace ToolingWCF
         }
 
         /// <summary>
-        /// get mold nr by position nr
+        /// 根据模具号获得库位号
         /// </summary>
-        /// <param name="posiNr"></param>
-        /// <returns></returns>
+        /// <param name="posiNr">库位号</param>
+        /// <returns>模具号</returns>
         public string GetMoldNrByPosiNr(string posiNr)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -335,10 +338,10 @@ namespace ToolingWCF
 
 
         /// <summary>
-        /// get mold current position
+        /// 根据模具号获得库位号
         /// </summary>
-        /// <param name="moldNR"></param>
-        /// <returns></returns>
+        /// <param name="moldNR">模具号</param>
+        /// <returns>库位号</returns>
         public string GetMoldCurrentPosition(string moldNR)
         {
             using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
@@ -346,6 +349,28 @@ namespace ToolingWCF
                 IMoldRepository moldRepostitory = new MoldRepository(unitwork);
                 MoldView moldview = moldRepostitory.GetMoldViewByMoldNR(moldNR);
                 return moldview.StorageRecordNR == null ? string.Empty : moldRepostitory.GetMoldCurrPosiByRecordNR((Guid)moldview.StorageRecordNR);
+            }
+        }
+
+
+        public List<ReportView> GetReportViewByDate(ReportType type,DateTime? startDate, DateTime? endDate)
+        {
+            using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
+            {
+                IReportRepository reportRep = new ReportRepository(unitwork);
+                return reportRep.GetReportViewByDate(type,startDate, endDate);
+            }
+        }
+
+
+
+
+        public List<StorageRecord> GetStoreRecordByDate(int type, DateTime? startDate, DateTime? endDate)
+        {
+            using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
+            {
+                IStorageRecordRepository reportRep = new StorageRecordRepository(unitwork);
+                return reportRep.GetByTypesDate(MoldRecordTypeHelper.GetApplyTypes(type), startDate, endDate);
             }
         }
     }

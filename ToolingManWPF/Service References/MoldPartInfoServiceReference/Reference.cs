@@ -1424,6 +1424,131 @@ namespace ToolingManWPF.MoldPartInfoServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReportView", Namespace="http://schemas.datacontract.org/2004/07/ClassLibrary.Data")]
+    [System.SerializableAttribute()]
+    public partial class ReportView : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MoldIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OperatorIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid ReportIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ToolingManWPF.MoldPartInfoServiceReference.ReportType ReportTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public string MoldID {
+            get {
+                return this.MoldIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MoldIDField, value) != true)) {
+                    this.MoldIDField = value;
+                    this.RaisePropertyChanged("MoldID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.DateTime Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string OperatorID {
+            get {
+                return this.OperatorIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OperatorIDField, value) != true)) {
+                    this.OperatorIDField = value;
+                    this.RaisePropertyChanged("OperatorID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Guid ReportId {
+            get {
+                return this.ReportIdField;
+            }
+            set {
+                if ((this.ReportIdField.Equals(value) != true)) {
+                    this.ReportIdField = value;
+                    this.RaisePropertyChanged("ReportId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public ToolingManWPF.MoldPartInfoServiceReference.ReportType ReportType {
+            get {
+                return this.ReportTypeField;
+            }
+            set {
+                if ((this.ReportTypeField.Equals(value) != true)) {
+                    this.ReportTypeField = value;
+                    this.RaisePropertyChanged("ReportType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MoldPartInfoServiceReference.IMoldPartInfoService")]
     public interface IMoldPartInfoService {
@@ -1463,6 +1588,12 @@ namespace ToolingManWPF.MoldPartInfoServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPosition", ReplyAction="http://tempuri.org/IMoldPartInfoService/GetMoldCurrentPositionResponse")]
         string GetMoldCurrentPosition(string moldNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMoldPartInfoService/GetReportViewByDate", ReplyAction="http://tempuri.org/IMoldPartInfoService/GetReportViewByDateResponse")]
+        System.Collections.Generic.List<ToolingManWPF.MoldPartInfoServiceReference.ReportView> GetReportViewByDate(ToolingManWPF.MoldPartInfoServiceReference.ReportType type, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDate", ReplyAction="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDateResponse")]
+        System.Collections.Generic.List<ToolingManWPF.MoldPartInfoServiceReference.StorageRecord> GetStoreRecordByDate(int type, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1538,6 +1669,14 @@ namespace ToolingManWPF.MoldPartInfoServiceReference {
         
         public string GetMoldCurrentPosition(string moldNr) {
             return base.Channel.GetMoldCurrentPosition(moldNr);
+        }
+        
+        public System.Collections.Generic.List<ToolingManWPF.MoldPartInfoServiceReference.ReportView> GetReportViewByDate(ToolingManWPF.MoldPartInfoServiceReference.ReportType type, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate) {
+            return base.Channel.GetReportViewByDate(type, startDate, endDate);
+        }
+        
+        public System.Collections.Generic.List<ToolingManWPF.MoldPartInfoServiceReference.StorageRecord> GetStoreRecordByDate(int type, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate) {
+            return base.Channel.GetStoreRecordByDate(type, startDate, endDate);
         }
     }
 }
