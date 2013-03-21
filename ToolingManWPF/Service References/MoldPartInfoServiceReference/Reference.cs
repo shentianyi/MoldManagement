@@ -1594,6 +1594,9 @@ namespace ToolingManWPF.MoldPartInfoServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDate", ReplyAction="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDateResponse")]
         System.Collections.Generic.List<ToolingManWPF.MoldPartInfoServiceReference.StorageRecord> GetStoreRecordByDate(int type, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMoldPartInfoService/DelAttachmentById", ReplyAction="http://tempuri.org/IMoldPartInfoService/DelAttachmentByIdResponse")]
+        bool DelAttachmentById(int attachId, string filePath);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1677,6 +1680,10 @@ namespace ToolingManWPF.MoldPartInfoServiceReference {
         
         public System.Collections.Generic.List<ToolingManWPF.MoldPartInfoServiceReference.StorageRecord> GetStoreRecordByDate(int type, System.Nullable<System.DateTime> startDate, System.Nullable<System.DateTime> endDate) {
             return base.Channel.GetStoreRecordByDate(type, startDate, endDate);
+        }
+        
+        public bool DelAttachmentById(int attachId, string filePath) {
+            return base.Channel.DelAttachmentById(attachId, filePath);
         }
     }
 }

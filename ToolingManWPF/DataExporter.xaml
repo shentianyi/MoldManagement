@@ -51,7 +51,7 @@
                                 <DatePicker Name="storeEndDateDP" />
                             </StackPanel>
 
-                            <StackPanel Width="100">
+                            <StackPanel Width="134">
                                 <Label Content="数据类型"></Label>
                                 <ComboBox Background="White" Name="StorageRecordTypeCB" Margin="0,0,0,10" HorizontalContentAlignment="Stretch"
                               SelectedValuePath="Value" >
@@ -149,7 +149,7 @@
                                 <DatePicker Name="endDateDP" />
                             </StackPanel>
 
-                            <StackPanel Width="100">
+                            <StackPanel Width="134">
                                 <Label Content="数据类型"></Label>
                                 <ComboBox Background="White" Name="ReportTypeCB" Margin="0,0,0,10" HorizontalContentAlignment="Stretch"
                               SelectedValuePath="Value" >

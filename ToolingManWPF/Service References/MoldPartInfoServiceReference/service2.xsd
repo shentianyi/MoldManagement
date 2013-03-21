@@ -219,4 +219,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DelAttachmentById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="attachId" type="xs:int" />
+        <xs:element minOccurs="0" name="filePath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelAttachmentByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelAttachmentByIdResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

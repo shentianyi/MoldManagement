@@ -125,5 +125,8 @@ namespace ToolingWCF
 
         [OperationContract]
         List<StorageRecord> GetStoreRecordByDate(int type, DateTime? startDate, DateTime? endDate);
+
+        [OperationContract]
+        bool DelAttachmentById(int attachId,string filePath);
     }
 }

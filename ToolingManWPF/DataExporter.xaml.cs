@@ -71,8 +71,15 @@ namespace ToolingManWPF
             ReportTypeCB.ItemsSource = types;
             ReportTypeCB.SelectedIndex = 0;
 
-            List<EnumItem> storeTypes = new List<EnumItem>() { new EnumItem() { Value = "0", Description = "申领记录" },
-                new EnumItem() { Value = "1", Description = "归还记录" },  new EnumItem() { Value = "2", Description = "移动工作台记录" } };
+            List<EnumItem> storeTypes = new List<EnumItem>()
+            {
+                new EnumItem() { Value = "0", Description = "申领汇总记录" },
+                new EnumItem(){Value="3",Description="正常生产申领记录"},
+                new EnumItem(){Value="4",Description="维护申领记录"},
+                new EnumItem(){Value="5",Description="测试申领记录"},
+                new EnumItem() { Value = "1", Description = "归还记录" }, 
+                new EnumItem() { Value = "2", Description = "移动工作台记录" }
+            };
             StorageRecordTypeCB.ItemsSource = storeTypes;
             StorageRecordTypeCB.SelectedIndex = 0;
         }
@@ -82,7 +89,6 @@ namespace ToolingManWPF
             saveFileDialog.FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xls";
             if ((bool)saveFileDialog.ShowDialog())
             {
-
                 List<ReportView> items = GetReportView();
                 string[] headers = { "员工工号", "姓名", "模具号", "操作时间" };
                 string[] pathes = { "OperatorID", "Name", "MoldID", "Date" };
@@ -107,7 +113,6 @@ namespace ToolingManWPF
             saveFileDialog.FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xls";
             if ((bool)saveFileDialog.ShowDialog())
             {
-
                 List<StorageRecord> items = GetStoreRecordView();
                 string[] headers = { "员工工号", "操作员工号" ,"模具号","源位置", "目标位置","操作时间" };
                 string[] pathes = { "ApplicantId", "OperatorId", "TargetNR", "Source", "Destination", "Date" };
@@ -119,7 +124,6 @@ namespace ToolingManWPF
                 else
                     MessageBox.Show("不存在记录数据");
             }
-
         }
 
 
@@ -140,8 +144,8 @@ namespace ToolingManWPF
         {
             DateTime? startDate = null;
             DateTime? endDate = null;
-            startDate = startDateDP.Text.Length == 0 ? startDate : DateTime.Parse(storeStartDateDP.Text);
-            endDate = endDateDP.Text.Length == 0 ? endDate : DateTime.Parse(storeEndDateDP.Text);
+            startDate = storeStartDateDP.Text.Length == 0 ? startDate : DateTime.Parse(storeStartDateDP.Text);
+            endDate = storeEndDateDP.Text.Length == 0 ? endDate : DateTime.Parse(storeEndDateDP.Text);
             List<StorageRecord> items = (new MoldPartInfoServiceClient()).GetStoreRecordByDate(int.Parse(((EnumItem)StorageRecordTypeCB.SelectedItem).Value),
               startDate, endDate);
             return items;

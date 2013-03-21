@@ -100,6 +100,12 @@
   <wsdl:message name="IMoldPartInfoService_GetStoreRecordByDate_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStoreRecordByDateResponse" />
   </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_DelAttachmentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelAttachmentById" />
+  </wsdl:message>
+  <wsdl:message name="IMoldPartInfoService_DelAttachmentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelAttachmentByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMoldPartInfoService">
     <wsdl:operation name="GetMoldByMutiConditions">
       <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetMoldByMutiConditions" message="tns:IMoldPartInfoService_GetMoldByMutiConditions_InputMessage" />
@@ -156,6 +162,10 @@
     <wsdl:operation name="GetStoreRecordByDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDate" message="tns:IMoldPartInfoService_GetStoreRecordByDate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDateResponse" message="tns:IMoldPartInfoService_GetStoreRecordByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAttachmentById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMoldPartInfoService/DelAttachmentById" message="tns:IMoldPartInfoService_DelAttachmentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMoldPartInfoService/DelAttachmentByIdResponse" message="tns:IMoldPartInfoService_DelAttachmentById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="moldpartinfoservice" type="tns:IMoldPartInfoService">
@@ -280,6 +290,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetStoreRecordByDate">
       <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/GetStoreRecordByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAttachmentById">
+      <soap:operation soapAction="http://tempuri.org/IMoldPartInfoService/DelAttachmentById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -51,5 +51,12 @@ namespace ClassLibrary.Repository.Implement
             Attachment attach = context.Attachment.Single(mc => mc.MasterNR.Equals(masterNR));
             return attach;
         }
+
+
+        public void DeleteById(int id)
+        {
+            Attachment attach = context.Attachment.SingleOrDefault(a => a.AttachmentId == id);
+            context.Attachment.DeleteOnSubmit(attach);
+        }
     }
 }

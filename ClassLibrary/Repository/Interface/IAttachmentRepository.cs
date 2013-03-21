@@ -28,5 +28,7 @@ namespace ClassLibrary.Repository.Interface
       /// <returns>附件实例</returns>
       Attachment GetSingleByMasterNR(string masterNR);
 
+      void DeleteById(int id);
+
     }
 }

@@ -11,6 +11,7 @@ using ToolingManWPF.Data;
 using Microsoft.Win32;
 using ToolingManWPF.StorageManageServiceReference;
 using System;
+using System.Windows.Input;
 
 
 
@@ -66,37 +67,45 @@ namespace ToolingManWPF
                 MoldBaseInfo moldBaseInfo = client.GetMoldBaseInfoByNR(moldNR);
                 BasicInfoGrid.DataContext = moldBaseInfo;
                 List<Attachment> attach = moldBaseInfo.Attach;
+                int i = 1;
                 foreach (Attachment at in attach)
                 {
-                    Hyperlink link = new Hyperlink(new Run(at.Name + "  "));
-
-                    link.Click += new RoutedEventHandler(Hyperlink_Click);
+                    Label link = new Label() { Content =i.ToString()+". "+ at.Name + "  ", Foreground = System.Windows.Media.Brushes.DarkGreen };
+                    link.MouseLeftButtonUp +=new MouseButtonEventHandler(link_MouseLeftButtonUp);
+                    link.MouseRightButtonUp+=new MouseButtonEventHandler(link_MouseRightButtonUp);
+                    link.MouseEnter+=new MouseEventHandler(link_MouseEnter);
+                    link.MouseLeave+=new MouseEventHandler(link_MouseLeave);
                     link.DataContext = at;
                     AttachmentTB.Inlines.Add(link);
+                    i += 1;
                 }
             }
         }
-
-        /// <summary>
-        /// 按钮点击事件-显示模具更改库位窗口
-        /// </summary>
-        /// <param name="sender">事件源</param>
-        /// <param name="e">事件参数</param>
-        private void ChangePosiBtn_Click(object sender, RoutedEventArgs e)
+         
+        private void link_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MoldMoveStore moldMove = new MoldMoveStore(moldNR,MoldPosiContent.Content.ToString());
-            moldMove.ShowDialog();
-        }
+            if (MessageBox.Show("确定删除？", "确认提示", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+                Attachment attach = (sender as Label).DataContext as Attachment;
+                MoldPartInfoServiceClient client = new MoldPartInfoServiceClient();
+                if (client.DelAttachmentById(attach.AttachmentId,attach.Path)) {
+                    ConfigUtil config = new ConfigUtil("FILEPATH");
+                    string directory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, config.Get("FILEPATH"));
+                    string filepath = System.IO.Path.Combine(directory, attach.Path);
+                    File.Delete(filepath);
+                    (sender as Label).Visibility=Visibility.Hidden;
+                }
+            }
+        }      
 
         /// <summary>
         /// 链接点击事件-查看文件
         /// </summary>
         /// <param name="sender">事件源</param>
         /// <param name="e">事件参数</param>
-        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        private void link_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Attachment attach = (sender as Hyperlink).DataContext as Attachment;
-
+            Attachment attach = (sender as Label).DataContext as Attachment;
+            
             ConfigUtil config = new ConfigUtil("FILEPATH");
             string directory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, config.Get("FILEPATH"));
             if (!Directory.Exists(directory))
@@ -178,6 +187,25 @@ namespace ToolingManWPF
             }
             else
                 MessageBox.Show("一次上传文件大小不可大于50M", "", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void link_MouseEnter(object sender, MouseEventArgs e)
+        {
+            (sender as Label).Foreground = System.Windows.Media.Brushes.Blue;
+        }
+        private void link_MouseLeave(object sender, MouseEventArgs e)
+        {
+            (sender as Label).Foreground = System.Windows.Media.Brushes.DarkGreen;
+        }
+        /// <summary>
+        /// 按钮点击事件-显示模具更改库位窗口
+        /// </summary>
+        /// <param name="sender">事件源</param>
+        /// <param name="e">事件参数</param>
+        private void ChangePosiBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MoldMoveStore moldMove = new MoldMoveStore(moldNR, MoldPosiContent.Content.ToString());
+            moldMove.ShowDialog();
         }
 
         /// <summary>

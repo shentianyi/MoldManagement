@@ -373,5 +373,27 @@ namespace ToolingWCF
                 return reportRep.GetByTypesDate(MoldRecordTypeHelper.GetApplyTypes(type), startDate, endDate);
             }
         }
+
+
+        public bool DelAttachmentById(int attachId, string filePath)
+        {
+            using (IUnitOfWork unitwork = MSSqlHelper.DataContext())
+            {
+                try
+                {
+                    IAttachmentRepository attachRep = new AttachmentRepository(unitwork);
+                    attachRep.DeleteById(attachId);
+                    string p = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.Default.FileAttachmentPath);
+                    string path = Path.Combine(p, filePath);
+                    File.Delete(path);
+                    unitwork.Submit();
+                }
+                catch (Exception e) {
+                    Console.WriteLine(e.Message);
+                    return false;
+                }
+                return true;
+            }
+        }
     }
 }
